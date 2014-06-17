@@ -16,6 +16,7 @@ prefix=$(cd $1 && pwd)
 URL=https://github.com/ros/catkin.git
 
 git clone $URL $prefix/catkin
-# Something broke catkin
+
+# May need to use same version as on the host machine
 cd $prefix/catkin
-git checkout a889894e9c7acccca931289de888e3dba1537504
+git checkout 0.6.5
