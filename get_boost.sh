@@ -13,9 +13,9 @@ fi
 cmd_exists git || die 'git was not found'
 
 prefix=$(cd $1 && pwd)
-URL=https://github.com/chadrockey/Boost-for-Android.git
+URL=https://github.com/garyservin/Boost-for-Android.git
 
 git clone $URL $prefix/boost
 cd $prefix/boost
 
-./build-android.sh $ANDROID_NDK --boost=1.53.0
+./build-android.sh $ANDROID_NDK --boost=1.54.0
