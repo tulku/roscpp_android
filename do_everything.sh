@@ -60,15 +60,15 @@ if [ $# == 1 ] || [ $2 != '--skip' ] ; then
     run_cmd get_ros_stuff $prefix/libs
 
     # Patch image_transport
-    patch -p0 -dN $prefix < patches/image_transport.patch
+    patch -p0 -N -d $prefix < patches/image_transport.patch
     # Patch camera_calibration_parsers
-    patch -p0 -dN $prefix < patches/camera_calibration_parsers.patch
+    patch -p0 -N -d $prefix < patches/camera_calibration_parsers.patch
     # Patch camera_info_manager
-    patch -p0 -dN $prefix < patches/camera_info_manager.patch
+    patch -p0 -N -d $prefix < patches/camera_info_manager.patch
     # Patch ros_comm (Accepted on upstream, need to update rosinstall when new release comes out)
-    patch -p0 -dN $prefix < patches/ros_comm.patch
+    patch -p0 -N -d $prefix < patches/ros_comm.patch
     # Patch roslib (Accepted on upstream, need to update rosinstall when new release comes out)
-    patch -p0 -dN $prefix < patches/roslib.patch
+    patch -p0 -N -d $prefix < patches/roslib.patch
 fi
 
 run_cmd build_tinyxml $prefix/libs/tinyxml
