@@ -1,0 +1,14 @@
+diff --git target/catkin_ws/src/ros_comm/roscpp/src/libros/transport/transport_udp.cpp target/catkin_ws/src/ros_comm/roscpp/src/libros/transport/transport_udp.cpp
+index 9111544..759463d 100644
+--- target/catkin_ws/src/ros_comm/roscpp/src/libros/transport/transport_udp.cpp
++++ target/catkin_ws/src/ros_comm/roscpp/src/libros/transport/transport_udp.cpp
+@@ -45,6 +45,9 @@
+   #include <sys/types.h>
+   #include <sys/uio.h>
+   #include <unistd.h>
++#elif defined(__ANDROID__)
++  // For readv() and writev() on ANDROID
++  #include <sys/uio.h>
+ #endif
+ 
+ namespace ros
