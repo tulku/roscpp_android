@@ -14,6 +14,6 @@ fi
 cmd_exists git || die 'git was not found'
 
 prefix=$(cd $1 && pwd)
-URL=https://github.com/garyservin/yaml-cpp.git
+URL=https://github.com/algron/yaml-cpp.git
 
 [ -d $prefix/yaml-cpp ] || git clone $URL $prefix/yaml-cpp
