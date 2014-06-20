@@ -190,22 +190,22 @@
 ### Need to use forked repository
 - git:
     local-name: pluginlib
-    uri: https://github.com/garyservin/pluginlib.git
+    uri: https://github.com/algron/pluginlib.git
     version: android
 - git:
     local-name: geometry
-    uri: https://github.com/garyservin/geometry.git
+    uri: https://github.com/algron/geometry.git
     version: android
 - git:
     local-name: geometry_experimental
-    uri: https://github.com/garyservin/geometry_experimental.git
+    uri: https://github.com/algron/geometry_experimental.git
     version: android_cpp
 - git:
     local-name: rospack
-    uri: https://github.com/garyservin/rospack.git
+    uri: https://github.com/algron/rospack.git
     version: android
 - git:
     local-name: ardrone_autonomy
-    uri: https://github.com/garyservin/ardrone_autonomy.git
+    uri: https://github.com/algron/ardrone_autonomy.git
     version: android
 
