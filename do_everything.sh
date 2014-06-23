@@ -54,7 +54,7 @@ run_cmd build_catkin $prefix/libs/catkin
 
 # Remove catkin package information from target since we will be cross-compiling it,
 # otherwise catkin will detect it as duplicate
-rm -rf $prefix/target/share/catkin
+rm -rf $prefix/target/share/*
 
 if [ $# == 1 ] || [ $2 != '--skip' ] ; then
     run_cmd get_ros_stuff $prefix/libs
@@ -65,6 +65,8 @@ if [ $# == 1 ] || [ $2 != '--skip' ] ; then
     patch -p0 -N -d $prefix < patches/camera_calibration_parsers.patch
     # Patch camera_info_manager
     patch -p0 -N -d $prefix < patches/camera_info_manager.patch
+    # Patch class_loader
+    patch -p0 -N -d $prefix < patches/class_loader.patch
     # Patch ros_comm (Accepted on upstream, need to update rosinstall when new release comes out)
     patch -p0 -N -d $prefix < patches/ros_comm.patch
     # Patch roslib (Accepted on upstream, need to update rosinstall when new release comes out)
