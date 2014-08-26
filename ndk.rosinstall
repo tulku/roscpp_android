@@ -234,5 +234,5 @@
     version: android
 - git:
     local-name: ardone_autonav
-    uri: https://github.com/algron/ardrone_autonav.git
+    uri: git@github.com:algron/ardrone_autonav.git
     version: android
