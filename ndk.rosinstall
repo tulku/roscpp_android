@@ -198,16 +198,16 @@
     local-name: dynamic_reconfigure
     uri: https://github.com/ros-gbp/dynamic_reconfigure-release/archive/release/indigo/dynamic_reconfigure/1.5.37-0.tar.gz
     version: dynamic_reconfigure-release-release-indigo-dynamic_reconfigure-1.5.37-0
-- tar:
-    local-name: robot_localization
-    uri: https://github.com/cra-ros-pkg/robot_localization-release/archive/release/indigo/robot_localization/2.1.3-0.tar.gz
-    version: robot_localization-release-release-indigo-robot_localization-2.1.3-0
-- tar:
-    local-name: gps_umd/gps_common
-    uri: https://github.com/ktossell/gps_umd-release/archive/release/indigo/gps_common/0.1.7-0.tar.gz
-    version: gps_umd-release-release-indigo-gps_common-0.1.7-0
 
 ### Need to use forked repository
+- git:
+    local-name: robot_localization
+    uri: https://github.com/algron/robot_localization.git
+    version: master
+- git:
+    local-name: gps_umd
+    uri: https://github.com/algron/gps_umd.git
+    version: android
 - git:
     local-name: pluginlib
     uri: https://github.com/algron/pluginlib.git
@@ -233,6 +233,6 @@
     uri: https://github.com/algron/navigation.git
     version: android
 - git:
-    local-name: ardone_autonav
+    local-name: ardrone_autonav
     uri: git@github.com:algron/ardrone_autonav.git
     version: android
