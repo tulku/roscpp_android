@@ -72,6 +72,8 @@ if [ $# == 1 ] || [ $2 != '--skip' ] ; then
     patch -p0 -N -d $prefix < patches/ros_comm.patch
     # Patch roslib (Accepted on upstream, need to update rosinstall when new release comes out)
     patch -p0 -N -d $prefix < patches/roslib.patch
+    # Patch dynamic_reconfigure
+    patch -p0 -N -d $prefix < patches/dynamic_reconfigure.patch
 fi
 
 run_cmd build_tinyxml $prefix/libs/tinyxml
