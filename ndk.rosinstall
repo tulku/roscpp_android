@@ -233,6 +233,10 @@
     uri: https://github.com/algron/navigation.git
     version: android
 - git:
+    local-name: algron_msgs
+    uri: git@github.com:algron/algron_msgs.git
+    version: master
+- git:
     local-name: ardrone_autonav
     uri: git@github.com:algron/ardrone_autonav.git
     version: android
