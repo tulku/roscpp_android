@@ -240,3 +240,7 @@
     local-name: ardrone_autonav
     uri: git@github.com:algron/ardrone_autonav.git
     version: master
+- git:
+    local-name: straight_line_planner
+    uri: git@github.com:algron/straight_line_planner.git
+    version: master
