@@ -2,6 +2,9 @@
 
 #shlibs := 
 
+#Enable debug symbols
+LOCAL_CFLAGS += -g
+
 define include_shlib
 $(eval include $$(CLEAR_VARS))
 $(eval LOCAL_MODULE := $(1))
