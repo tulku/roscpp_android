@@ -86,7 +86,12 @@ run_cmd build_yaml_cpp $prefix/libs/yaml-cpp
 run_cmd build_cpp
 
 run_cmd setup_ndk_project $prefix/roscpp_android_ndk
-run_cmd create_android_mk $prefix/target/catkin_ws/src $prefix/roscpp_android_ndk
+# JAC: Disabled temporarily and replaced by application-specific Android.mk since
+# the library order resulting from create_android_mk doesn't work
+cp $my_loc/files/Android.mk.algron $prefix/roscpp_android_ndk/Android.mk
+
+# run_cmd create_android_mk $prefix/target/catkin_ws/src $prefix/roscpp_android_ndk
+
 #( cd $prefix && run_cmd sample_app sample_app $prefix/roscpp_android_ndk )
 
 echo
