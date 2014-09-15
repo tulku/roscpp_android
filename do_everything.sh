@@ -3,11 +3,44 @@
 my_loc="$(cd "$(dirname $0)" && pwd)"
 source $my_loc/config.sh
 source $my_loc/utils.sh
+debugging=0
+skip=0
+help=0
 
-if [[ $# -lt 1 ]] || [[ "$1" == '-h' ]] || [[ "$1" == '--help' ]]; then
-    echo "Usage: $0 prefix_path"
+if [[ $# -lt 1 ]] ; then
+    help=1
+fi
+
+for var in "$@"
+do
+    if [[ ${var} == "--help" ]] ||  [[ ${var} == "-h" ]] ; then
+        help=1
+    fi
+    if [[ ${var} == "--skip" ]] ; then
+        skip=1
+    fi
+
+    if [[ ${var} == "--debug-symbols" ]] ; then
+        debugging=1
+    fi
+done
+
+if [[ $help -eq 1 ]] ; then
+    echo "Usage: $0 prefix_path [--debug-symbols]"
     echo "  example: $0 /home/user/my_workspace"
     exit 1
+fi
+
+if [[ $skip -eq 1 ]]; then
+   echo "-- Skiping projects update"
+else
+   echo "-- Will update projects"
+fi
+
+if [[ $debugging -eq 1 ]]; then
+   echo "-- Building workspace WITH debugging symbols"
+else
+   echo "-- Building workspace without debugging symbols"
 fi
 
 if [ ! -d $1 ]; then
@@ -50,14 +83,16 @@ export RBA_TOOLCHAIN=$prefix/android.toolchain.cmake
 [ -d $prefix/libs/console_bridge ] || run_cmd get_console_bridge $prefix/libs
 [ -d $prefix/libs/yaml-cpp ] || run_cmd get_yaml_cpp $prefix/libs
 
+
 run_cmd build_catkin $prefix/libs/catkin
 . $prefix/target/setup.bash
+
 
 # Remove catkin package information from target since we will be cross-compiling it,
 # otherwise catkin will detect it as duplicate
 rm -rf $prefix/target/share/*
 
-if [ $# == 1 ] || [ $2 != '--skip' ] ; then
+if [[ $skip -ne 1 ]] ; then
     run_cmd get_ros_stuff $prefix/libs
 
     # Patch image_transport
@@ -76,6 +111,7 @@ if [ $# == 1 ] || [ $2 != '--skip' ] ; then
     patch -p0 -N -d $prefix < patches/dynamic_reconfigure.patch
 fi
 
+
 run_cmd build_tinyxml $prefix/libs/tinyxml
 run_cmd copy_boost $prefix/libs/boost
 run_cmd build_poco $prefix/libs/poco-1.4.6p2
@@ -83,10 +119,26 @@ run_cmd build_console_bridge $prefix/libs/console_bridge
 run_cmd build_eigen $prefix/libs/eigen
 run_cmd build_yaml_cpp $prefix/libs/yaml-cpp
 
-run_cmd build_cpp
+
+if [[ $debugging -eq 1 ]];then
+    run_cmd build_cpp --debug-symbols
+else
+    sed -i 's/\(^.*debug-symbols.*$\)/#\1/' $prefix/target/catkin_ws/src/ardrone_autonomy/CmakeLists.txt
+    run_cmd build_cpp
+fi
 
 run_cmd setup_ndk_project $prefix/roscpp_android_ndk
-run_cmd create_android_mk $prefix/target/catkin_ws/src $prefix/roscpp_android_ndk
+# JAC: Disabled temporarily and replaced by application-specific Android.mk since
+# the library order resulting from create_android_mk doesn't work
+
+cp $my_loc/files/Android.mk.algron $prefix/roscpp_android_ndk/Android.mk
+
+if [[ $debugging -eq 1 ]];then
+    sed -i "s/#LOCAL_EXPORT_CFLAGS/LOCAL_EXPORT_CFLAGS/g" $prefix/roscpp_android_ndk/Android.mk
+fi
+
+# run_cmd create_android_mk $prefix/target/catkin_ws/src $prefix/roscpp_android_ndk
+
 #( cd $prefix && run_cmd sample_app sample_app $prefix/roscpp_android_ndk )
 
 echo
