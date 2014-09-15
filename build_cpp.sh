@@ -12,6 +12,12 @@ if echo $system | grep _64 >/dev/null; then
     host64='-DANDROID_NDK_HOST_X64=YES'
 fi
 
+if [[ $1 == "--debug-symbols" ]] ; then
+    CMAKE_BUILD_TYPE=Debug
+else
+    CMAKE_BUILD_TYPE=Release
+fi
+
 python=$(which python)
 python_lib=/usr/lib/x86_64-linux-gnu/libpython2.7.so
 python_inc=/usr/include/python2.7
