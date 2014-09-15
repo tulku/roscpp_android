@@ -123,13 +123,19 @@ run_cmd build_yaml_cpp $prefix/libs/yaml-cpp
 if [[ $debugging -eq 1 ]];then
     run_cmd build_cpp --debug-symbols
 else
+    sed -i 's/\(^.*debug-symbols.*$\)/#\1/' $prefix/target/catkin_ws/src/ardrone_autonomy/CmakeLists.txt
     run_cmd build_cpp
 fi
 
 run_cmd setup_ndk_project $prefix/roscpp_android_ndk
 # JAC: Disabled temporarily and replaced by application-specific Android.mk since
 # the library order resulting from create_android_mk doesn't work
+
 cp $my_loc/files/Android.mk.algron $prefix/roscpp_android_ndk/Android.mk
+
+if [[ $debugging -eq 1 ]];then
+    sed -i "s/#LOCAL_EXPORT_CFLAGS/LOCAL_EXPORT_CFLAGS/g" $prefix/roscpp_android_ndk/Android.mk
+fi
 
 # run_cmd create_android_mk $prefix/target/catkin_ws/src $prefix/roscpp_android_ndk
 
