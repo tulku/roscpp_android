@@ -26,7 +26,7 @@ do
 done
 
 if [[ $help -eq 1 ]] ; then
-    echo "Usage: $0 prefix_path [--debug-symbols]"
+    echo "Usage: $0 prefix_path [-h | --help] [--skip] [--debug-symbols]"
     echo "  example: $0 /home/user/my_workspace"
     exit 1
 fi
