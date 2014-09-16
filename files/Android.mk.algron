@@ -33,7 +33,8 @@ LOCAL_EXPORT_C_INCLUDES += $(LOCAL_PATH)/include/ardrone/Lib
 LOCAL_EXPORT_C_INCLUDES += $(LOCAL_PATH)/include/ardrone/FFMPEG/Includes
 LOCAL_EXPORT_CPPFLAGS := -fexceptions -frtti
 
-# Uncomment to enable debug build
+# Do not change this next line as is it commented / uncommented by build_ndk.sh depending on the debugging requirements
+# This variable makes all the dependent modules inherit the flags 
 #LOCAL_EXPORT_CFLAGS += -g
 
 #LOCAL_SRC_FILES := dummy.cpp
