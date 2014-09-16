@@ -123,7 +123,6 @@ run_cmd build_yaml_cpp $prefix/libs/yaml-cpp
 if [[ $debugging -eq 1 ]];then
     run_cmd build_cpp --debug-symbols
 else
-    sed -i 's/\(^.*debug-symbols.*$\)/#\1/' $prefix/target/catkin_ws/src/ardrone_autonomy/CmakeLists.txt
     run_cmd build_cpp
 fi
 
