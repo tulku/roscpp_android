@@ -18,4 +18,4 @@ URL=https://github.com/algron/Boost-for-Android.git
 git clone $URL $prefix/boost
 cd $prefix/boost
 
-./build-android.sh $ANDROID_NDK --boost=1.54.0
+./build-android.sh $ANDROID_NDK --boost=1.53.0
