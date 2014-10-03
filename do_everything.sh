@@ -108,7 +108,7 @@ if [[ $skip -ne 1 ]] ; then
     # Patch roslib (Accepted on upstream, need to update rosinstall when new release comes out)
     patch -p0 -N -d $prefix < patches/roslib.patch
     # Patch dynamic_reconfigure
-    patch -p0 -N -d $prefix < patches/dynamic_reconfigure.patch
+    #patch -p0 -N -d $prefix < patches/dynamic_reconfigure.patch
 fi
 
 
