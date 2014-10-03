@@ -2,7 +2,7 @@ LOCAL_PATH := $(call my-dir)
 
 # These must go in some sort of order like include flags, otherwise they are dropped
 # Oh no, need to automate this with catkin somehow....
-stlibs :=  topic_tools roscpp boost_signals boost_filesystem rosconsole rosconsole_print rosconsole_backend_interface boost_regex roscpp_serialization boost_date_time boost_system boost_thread xmlrpcpp cpp_common console_bridge move_base dynamic_reconfigure_config_init_mutex global_planner navfn costmap_2d ardrone_sdk ardrone_driver rostime pc_ardrone avcodec swscale avutil vlib sdk image_transport camera_info_manager roslib rospack tinyxml class_loader PocoFoundation nav_to_odom pose_viz utm_transform tf tf2_ros actionlib message_filters tf2 straight_line_planner camera_calibration_parsers boost_program_options yaml-cpp utm_odometry ros_filter filter_base ekf base_local_planner altitude_controller
+stlibs :=  topic_tools roscpp boost_signals boost_filesystem rosconsole rosconsole_print rosconsole_backend_interface boost_regex roscpp_serialization boost_date_time boost_system boost_thread xmlrpcpp cpp_common console_bridge ardrone_sdk ardrone_driver rostime pc_ardrone avcodec swscale avutil vlib sdk image_transport camera_info_manager roslib rospack tinyxml class_loader PocoFoundation tf tf2_ros actionlib message_filters tf2 camera_calibration_parsers boost_program_options yaml-cpp
 
 #shlibs := 
 

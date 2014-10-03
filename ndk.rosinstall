@@ -195,19 +195,15 @@
     uri: https://github.com/ros-gbp/image_common-release/archive/release/indigo/camera_info_manager/1.11.3-1.tar.gz
     version: image_common-release-release-indigo-camera_info_manager-1.11.3-1
 - tar:
-    local-name: dynamic_reconfigure
-    uri: https://github.com/ros-gbp/dynamic_reconfigure-release/archive/release/indigo/dynamic_reconfigure/1.5.37-0.tar.gz
-    version: dynamic_reconfigure-release-release-indigo-dynamic_reconfigure-1.5.37-0
+    local-name: geographic_info/geographic_msgs
+    uri: https://github.com/ros-geographic-info/geographic_info-release/archive/release/indigo/geographic_msgs/0.4.0-0.tar.gz
+    version: geographic_info-release-release-indigo-geographic_msgs-0.4.0-0
+- tar:
+    local-name: unique_identifier/uuid_msgs
+    uri: https://github.com/ros-geographic-info/unique_identifier-release/archive/release/indigo/uuid_msgs/1.0.4-0.tar.gz
+    version: unique_identifier-release-release-indigo-uuid_msgs-1.0.4-0
 
 ### Need to use forked repository
-- git:
-    local-name: robot_localization
-    uri: https://github.com/algron/robot_localization.git
-    version: master
-- git:
-    local-name: gps_umd
-    uri: https://github.com/algron/gps_umd.git
-    version: android
 - git:
     local-name: pluginlib
     uri: https://github.com/algron/pluginlib.git
@@ -228,19 +224,3 @@
     local-name: ardrone_autonomy
     uri: https://github.com/algron/ardrone_autonomy.git
     version: android
-- git:
-    local-name: navigation
-    uri: https://github.com/algron/navigation.git
-    version: android
-- git:
-    local-name: algron_msgs
-    uri: git@github.com:algron/algron_msgs.git
-    version: master
-- git:
-    local-name: ardrone_autonav
-    uri: git@github.com:algron/ardrone_autonav.git
-    version: master
-- git:
-    local-name: straight_line_planner
-    uri: git@github.com:algron/straight_line_planner.git
-    version: master
