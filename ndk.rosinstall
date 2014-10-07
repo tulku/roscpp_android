@@ -224,3 +224,7 @@
     local-name: ardrone_autonomy
     uri: https://github.com/algron/ardrone_autonomy.git
     version: android
+- git:
+    local-name: ardrone_autonav
+    uri: git@github.com:algron/ardrone_autonav.git
+    version: master
