@@ -98,20 +98,19 @@ rm -rf $prefix/target/share/*
 if [[ $skip -ne 1 ]] ; then
     run_cmd get_ros_stuff $prefix/libs
 
+    # Patch roscpp
+    patch -p0 -N -d $prefix < /opt/roscpp_android/patches/roscpp.patch
+
     # Patch image_transport
-    patch -p0 -N -d $prefix < patches/image_transport.patch
+    #patch -p0 -N -d $prefix < patches/image_transport.patch
     # Patch camera_calibration_parsers
-    patch -p0 -N -d $prefix < patches/camera_calibration_parsers.patch
+    #patch -p0 -N -d $prefix < patches/camera_calibration_parsers.patch
     # Patch camera_info_manager
-    patch -p0 -N -d $prefix < patches/camera_info_manager.patch
+    #patch -p0 -N -d $prefix < patches/camera_info_manager.patch
     # Patch class_loader
-    patch -p0 -N -d $prefix < patches/class_loader.patch
-    # Patch ros_comm (Accepted on upstream, need to update rosinstall when new release comes out)
-    patch -p0 -N -d $prefix < patches/ros_comm.patch
-    # Patch roslib (Accepted on upstream, need to update rosinstall when new release comes out)
-    patch -p0 -N -d $prefix < patches/roslib.patch
+    #patch -p0 -N -d $prefix < patches/class_loader.patch
     # Patch dynamic_reconfigure
-    patch -p0 -N -d $prefix < patches/dynamic_reconfigure.patch
+    #patch -p0 -N -d $prefix < patches/dynamic_reconfigure.patch
 fi
 
 
