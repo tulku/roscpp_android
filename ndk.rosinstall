@@ -34,10 +34,10 @@
     local-name: ros/mk
     uri: https://github.com/ros-gbp/ros-release/archive/release/indigo/mk/1.11.5-0.tar.gz
     version: ros-release-release-indigo-mk-1.11.5-0
-- tar:
-    local-name: ros/ros
-    uri: https://github.com/ros-gbp/ros-release/archive/release/indigo/ros/1.11.5-0.tar.gz
-    version: ros-release-release-indigo-ros-1.11.5-0
+#- tar:
+#    local-name: ros/ros
+#    uri: https://github.com/ros-gbp/ros-release/archive/release/indigo/ros/1.11.5-0.tar.gz
+#    version: ros-release-release-indigo-ros-1.11.5-0
 - tar:
     local-name: ros/rosbash
     uri: https://github.com/ros-gbp/ros-release/archive/release/indigo/rosbash/1.11.5-0.tar.gz
@@ -78,10 +78,10 @@
     local-name: ros_comm/message_filters
     uri: https://github.com/ros-gbp/ros_comm-release/archive/release/indigo/message_filters/1.11.9-0.tar.gz
     version: ros_comm-release-release-indigo-message_filters-1.11.9-0
-- tar:
-    local-name: ros_comm/ros_comm
-    uri: https://github.com/ros-gbp/ros_comm-release/archive/release/indigo/ros_comm/1.11.9-0.tar.gz
-    version: ros_comm-release-release-indigo-ros_comm-1.11.9-0
+#- tar:
+#    local-name: ros_comm/ros_comm
+#    uri: https://github.com/ros-gbp/ros_comm-release/archive/release/indigo/ros_comm/1.11.9-0.tar.gz
+#    version: ros_comm-release-release-indigo-ros_comm-1.11.9-0
 #- tar:
 #    local-name: ros_comm/rosbag
 #    uri: https://github.com/ros-gbp/ros_comm-release/archive/release/indigo/rosbag/1.11.9-0.tar.gz
@@ -182,6 +182,10 @@
     local-name: roscpp_core/rostime
     uri: https://github.com/ros-gbp/roscpp_core-release/archive/release/indigo/rostime/0.5.4-0.tar.gz
     version: roscpp_core-release-release-indigo-rostime-0.5.4-0
+- tar:
+    local-name: roslisp
+    uri: https://github.com/ros-gbp/roslisp-release/archive/release/indigo/roslisp/1.9.17-0.tar.gz
+    version: roslisp-release-release-indigo-roslisp-1.9.17-0
 - git:
     local-name: rospack
     uri: https://github.com/algron/rospack.git
