@@ -1,0 +1,29 @@
+--- target/catkin_ws/src/ros_comm/roscpp/src/libros/transport/transport.cpp	2014-10-21 00:03:18.473905763 -0300
++++ target/catkin_ws/src/ros_comm/roscpp/src/libros/transport/transport.cpp	2014-10-21 00:01:45.081910014 -0300
+@@ -34,7 +34,7 @@
+ 
+ #include "ros/transport/transport.h"
+ #include "ros/console.h"
+-#include <ifaddrs.h>
++//#include <ifaddrs.h>
+ #include <netinet/in.h>
+ #include <sys/socket.h>
+ #include <netdb.h>
+@@ -71,7 +71,7 @@
+   // for ipv4 loopback, we'll explicitly search for 127.* in isHostAllowed()
+   // now we need to iterate all local interfaces and add their addresses
+   // from the getifaddrs manpage:  (maybe something similar for windows ?) 
+-  ifaddrs *ifaddr;
++  /*ifaddrs *ifaddr;
+   if (-1 == getifaddrs(&ifaddr))
+   {
+     ROS_ERROR("getifaddr() failed");
+@@ -95,7 +95,7 @@
+       continue;
+     }
+     allowed_hosts_.push_back(std::string(addr));
+-  }
++  }*/
+ }
+ 
+ bool Transport::isHostAllowed(const std::string &host) const
