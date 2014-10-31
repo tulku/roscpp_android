@@ -81,7 +81,6 @@ export RBA_TOOLCHAIN=$prefix/android.toolchain.cmake
 [ -d $prefix/libs/boost ] || run_cmd get_boost $prefix/libs
 [ -d $prefix/libs/poco-1.4.6p2 ] || run_cmd get_poco $prefix/libs
 [ -d $prefix/libs/tinyxml ] || run_cmd get_tinyxml $prefix/libs
-[ -d $prefix/libs/eigen ] || run_cmd get_eigen $prefix/libs
 [ -d $prefix/libs/catkin ] || run_cmd get_catkin $prefix/libs
 [ -d $prefix/libs/console_bridge ] || run_cmd get_console_bridge $prefix/libs
 [ -d $prefix/libs/yaml-cpp ] || run_cmd get_yaml_cpp $prefix/libs
@@ -98,27 +97,17 @@ rm -rf $prefix/target/share/*
 if [[ $skip -ne 1 ]] ; then
     run_cmd get_ros_stuff $prefix/libs
 
-    # Patch roscpp
+    # Patch roscpp - avoid using ifaddrs on Android as it is not natively supported
+    # (TODO: remove once https://github.com/ros/ros_comm/pull/518 is accepted)
     patch -p0 -N -d $prefix < /opt/roscpp_android/patches/roscpp.patch
 
-    # Patch image_transport
-    #patch -p0 -N -d $prefix < patches/image_transport.patch
-    # Patch camera_calibration_parsers
-    #patch -p0 -N -d $prefix < patches/camera_calibration_parsers.patch
-    # Patch camera_info_manager
-    #patch -p0 -N -d $prefix < patches/camera_info_manager.patch
-    # Patch class_loader
-    #patch -p0 -N -d $prefix < patches/class_loader.patch
-    # Patch dynamic_reconfigure
-    #patch -p0 -N -d $prefix < patches/dynamic_reconfigure.patch
 fi
 
 
-run_cmd build_tinyxml $prefix/libs/tinyxml
 run_cmd copy_boost $prefix/libs/boost
 run_cmd build_poco $prefix/libs/poco-1.4.6p2
+run_cmd build_tinyxml $prefix/libs/tinyxml
 run_cmd build_console_bridge $prefix/libs/console_bridge
-run_cmd build_eigen $prefix/libs/eigen
 run_cmd build_yaml_cpp $prefix/libs/yaml-cpp
 
 
@@ -129,16 +118,16 @@ else
 fi
 
 run_cmd setup_ndk_project $prefix/roscpp_android_ndk
+
+run_cmd create_android_mk $prefix/target/catkin_ws/src $prefix/roscpp_android_ndk
+
 # JAC: Disabled temporarily and replaced by application-specific Android.mk since
 # the library order resulting from create_android_mk doesn't work
-
-cp $my_loc/files/Android.mk.algron $prefix/roscpp_android_ndk/Android.mk
+#cp $my_loc/files/Android.mk.algron $prefix/roscpp_android_ndk/Android.mk
 
 if [[ $debugging -eq 1 ]];then
     sed -i "s/#LOCAL_EXPORT_CFLAGS/LOCAL_EXPORT_CFLAGS/g" $prefix/roscpp_android_ndk/Android.mk
 fi
-
-# run_cmd create_android_mk $prefix/target/catkin_ws/src $prefix/roscpp_android_ndk
 
 #( cd $prefix && run_cmd sample_app sample_app $prefix/roscpp_android_ndk )
 
@@ -149,6 +138,3 @@ echo '  target/      was used to build static libraries for ros software'
 echo '    include/   contains headers'
 echo '    lib/       contains static libraries'
 echo '  roscpp_android_ndk/     is a NDK sub-project that can be imported into an NDK app'
-echo
-echo 'you might now cd into sample_app/, run "ant debug install", and if an'
-echo 'android emulator is running, the app will be flashed onto it.'
