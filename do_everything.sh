@@ -80,6 +80,7 @@ export RBA_TOOLCHAIN=$prefix/android.toolchain.cmake
 # Now get boost with a specialized build
 [ -d $prefix/libs/boost ] || run_cmd get_boost $prefix/libs
 [ -d $prefix/libs/bzip2-1.0.6 ] || run_cmd get_bzip2 $prefix/libs
+[ -d $prefix/libs/uuid ] || run_cmd get_uuid $prefix/libs
 [ -d $prefix/libs/poco-1.4.6p2 ] || run_cmd get_poco $prefix/libs
 [ -d $prefix/libs/tinyxml ] || run_cmd get_tinyxml $prefix/libs
 [ -d $prefix/libs/catkin ] || run_cmd get_catkin $prefix/libs
@@ -110,6 +111,7 @@ if [[ $skip -ne 1 ]] ; then
 fi
 
 run_cmd build_bzip2 $prefix/libs/bzip2
+run_cmd build_uuid $prefix/libs/uuid
 run_cmd copy_boost $prefix/libs/boost
 run_cmd build_poco $prefix/libs/poco-1.4.6p2
 run_cmd build_tinyxml $prefix/libs/tinyxml
