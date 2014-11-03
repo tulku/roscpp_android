@@ -82,14 +82,14 @@
 #    local-name: ros_comm/ros_comm
 #    uri: https://github.com/ros-gbp/ros_comm-release/archive/release/indigo/ros_comm/1.11.9-0.tar.gz
 #    version: ros_comm-release-release-indigo-ros_comm-1.11.9-0
-#- tar:
-#    local-name: ros_comm/rosbag
-#    uri: https://github.com/ros-gbp/ros_comm-release/archive/release/indigo/rosbag/1.11.9-0.tar.gz
-#    version: ros_comm-release-release-indigo-rosbag-1.11.9-0
-#- tar:
-#    local-name: ros_comm/rosbag_storage
-#    uri: https://github.com/ros-gbp/ros_comm-release/archive/release/indigo/rosbag_storage/1.11.9-0.tar.gz
-#    version: ros_comm-release-release-indigo-rosbag_storage-1.11.9-0
+- tar:
+    local-name: ros_comm/rosbag
+    uri: https://github.com/ros-gbp/ros_comm-release/archive/release/indigo/rosbag/1.11.9-0.tar.gz
+    version: ros_comm-release-release-indigo-rosbag-1.11.9-0
+- tar:
+    local-name: ros_comm/rosbag_storage
+    uri: https://github.com/ros-gbp/ros_comm-release/archive/release/indigo/rosbag_storage/1.11.9-0.tar.gz
+    version: ros_comm-release-release-indigo-rosbag_storage-1.11.9-0
 - tar:
     local-name: ros_comm/rosconsole
     uri: https://github.com/ros-gbp/ros_comm-release/archive/release/indigo/rosconsole/1.11.9-0.tar.gz
@@ -106,10 +106,10 @@
     local-name: ros_comm/roslaunch
     uri: https://github.com/ros-gbp/ros_comm-release/archive/release/indigo/roslaunch/1.11.9-0.tar.gz
     version: ros_comm-release-release-indigo-roslaunch-1.11.9-0
-#- tar:
-#    local-name: ros_comm/roslz4
-#    uri: https://github.com/ros-gbp/ros_comm-release/archive/release/indigo/roslz4/1.11.9-0.tar.gz
-#    version: ros_comm-release-release-indigo-roslz4-1.11.9-0
+- tar:
+    local-name: ros_comm/roslz4
+    uri: https://github.com/ros-gbp/ros_comm-release/archive/release/indigo/roslz4/1.11.9-0.tar.gz
+    version: ros_comm-release-release-indigo-roslz4-1.11.9-0
 - tar:
     local-name: ros_comm/rosmaster
     uri: https://github.com/ros-gbp/ros_comm-release/archive/release/indigo/rosmaster/1.11.9-0.tar.gz
