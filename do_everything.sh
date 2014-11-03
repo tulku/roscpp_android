@@ -108,6 +108,7 @@ if [[ $skip -ne 1 ]] ; then
     patch -p0 -N -d $prefix < /opt/roscpp_android/patches/lz4.patch
 
     #  Patch roslz4 - remove python stuff
+    # TODO: remove once https://github.com/ros/ros_comm/pull/521 is accepted
     patch -p0 -N -d $prefix < /opt/roscpp_android/patches/roslz4.patch
 
 fi
