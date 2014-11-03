@@ -79,12 +79,13 @@ export RBA_TOOLCHAIN=$prefix/android.toolchain.cmake
 
 # Now get boost with a specialized build
 [ -d $prefix/libs/boost ] || run_cmd get_boost $prefix/libs
+[ -d $prefix/libs/bzip2-1.0.6 ] || run_cmd get_bzip2 $prefix/libs
+[ -d $prefix/libs/uuid ] || run_cmd get_uuid $prefix/libs
 [ -d $prefix/libs/poco-1.4.6p2 ] || run_cmd get_poco $prefix/libs
 [ -d $prefix/libs/tinyxml ] || run_cmd get_tinyxml $prefix/libs
 [ -d $prefix/libs/catkin ] || run_cmd get_catkin $prefix/libs
 [ -d $prefix/libs/console_bridge ] || run_cmd get_console_bridge $prefix/libs
-[ -d $prefix/libs/yaml-cpp ] || run_cmd get_yaml_cpp $prefix/libs
-
+[ -d $prefix/libs/lz4 ] || run_cmd get_lz4 $prefix/libs
 
 run_cmd build_catkin $prefix/libs/catkin
 . $prefix/target/setup.bash
@@ -101,15 +102,24 @@ if [[ $skip -ne 1 ]] ; then
     # (TODO: remove once https://github.com/ros/ros_comm/pull/518 is accepted)
     patch -p0 -N -d $prefix < /opt/roscpp_android/patches/roscpp.patch
 
+    # patch CMakeLists.txt for lz4 library - fix xxhash location
+    # (TODO: remove once https://github.com/Cyan4973/lz4/pull/32 is accepted)
+    # this patch also enables a directive to build as a library
+    patch -p0 -N -d $prefix < /opt/roscpp_android/patches/lz4.patch
+
+    #  Patch roslz4 - remove python stuff
+    # TODO: remove once https://github.com/ros/ros_comm/pull/521 is accepted
+    patch -p0 -N -d $prefix < /opt/roscpp_android/patches/roslz4.patch
+
 fi
 
-
+run_cmd build_bzip2 $prefix/libs/bzip2
+run_cmd build_uuid $prefix/libs/uuid
 run_cmd copy_boost $prefix/libs/boost
 run_cmd build_poco $prefix/libs/poco-1.4.6p2
 run_cmd build_tinyxml $prefix/libs/tinyxml
 run_cmd build_console_bridge $prefix/libs/console_bridge
-run_cmd build_yaml_cpp $prefix/libs/yaml-cpp
-
+run_cmd build_lz4 $prefix/libs/lz4-r123/cmake_unofficial
 
 if [[ $debugging -eq 1 ]];then
     run_cmd build_cpp --debug-symbols
