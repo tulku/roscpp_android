@@ -102,7 +102,9 @@ if [[ $skip -ne 1 ]] ; then
     # (TODO: remove once https://github.com/ros/ros_comm/pull/518 is accepted)
     patch -p0 -N -d $prefix < /opt/roscpp_android/patches/roscpp.patch
 
-    # patch CMakeLists.txt for lz4 library
+    # patch CMakeLists.txt for lz4 library - fix xxhash location
+    # (TODO: remove once https://github.com/Cyan4973/lz4/pull/32 is accepted)
+    # this patch also enables a directive to build as a library
     patch -p0 -N -d $prefix < /opt/roscpp_android/patches/lz4.patch
 
     #  Patch roslz4 - remove python stuff
