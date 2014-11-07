@@ -16,4 +16,8 @@ cmd_exists git || die 'git was not found'
 prefix=$(cd $1 && pwd)
 URL=https://github.com/chadrockey/tinyxml_cmake
 
+echo
+echo -e '\e[34mGetting tinyxml.\e[39m'
+echo
+
 [ -d $prefix/tinyxml ] || git clone $URL $prefix/tinyxml

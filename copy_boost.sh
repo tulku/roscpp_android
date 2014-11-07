@@ -12,6 +12,10 @@ fi
 
 prefix=$(cd $1 && pwd)
 
+echo
+echo -e '\e[34mCopying boost.\e[39m'
+echo
+
 [ "$CMAKE_PREFIX_PATH" = "" ] && die 'could not find target basedir. Have you run build_catkin.sh and sourced setup.bash?'
 mkdir -p $CMAKE_PREFIX_PATH/lib
 cd $prefix/build/lib

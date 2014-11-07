@@ -19,11 +19,3 @@ echo
 # Build docker image
 sudo docker build -t rosndk .
 # TODO: Verify successful docker image build
-
-echo
-echo -e '\e[34mRunning megabuild.\e[39m'
-echo
-echo -e '\e[34mSetting output_path to: '$output_path'.\e[39m'
-echo
-
-sudo docker run -t -v $my_loc:/opt/roscpp_android -v $output_path:/opt/roscpp_output -i rosndk /opt/roscpp_android/do_everything.sh /opt/roscpp_output

@@ -10,6 +10,10 @@ if [ $# != 1 ] || [ $1 == '-h' ] || [ $1 == '--help' ]; then
     exit 1
 fi
 
+echo
+echo -e '\e[34mBuilding lz4.\e[39m'
+echo
+
 cmake_build $1
 
 cp $my_loc/../roscpp_output/libs/lz4-r123/lz4.h $my_loc/../roscpp_output/target/include/
