@@ -15,6 +15,10 @@ cmd_exists git || die 'git was not found'
 prefix=$(cd $1 && pwd)
 URL=https://github.com/algron/Boost-for-Android.git
 
+echo
+echo -e '\e[34mGetting boost.\e[39m'
+echo
+
 git clone $URL $prefix/boost
 cd $prefix/boost
 

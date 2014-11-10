@@ -15,6 +15,10 @@ cmd_exists git || die 'git was not found'
 prefix=$(cd $1 && pwd)
 URL=https://github.com/ros/catkin.git
 
+echo
+echo -e '\e[34mGetting catkin.\e[39m'
+echo
+
 git clone $URL $prefix/catkin
 
 # May need to use same version as on the host machine

@@ -4,17 +4,24 @@ MAINTAINER Gary Servin <gary@creativa77.com.ar>
 
 # Install ROS Indigo
 RUN apt-get update && apt-get install -y wget git
-RUN sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu trusty main" > /etc/apt/sources.list.d/ros-latest.list'
+RUN sh -c 'echo "deb http://packages.ros.org/ros/ubuntu trusty main" > /etc/apt/sources.list.d/ros-latest.list'
 RUN wget https://raw.githubusercontent.com/ros/rosdistro/master/ros.key -O - | sudo apt-key add -
-RUN sudo apt-get update
-RUN sudo apt-get install -y ros-indigo-ros-base python-wstool
+RUN apt-get update && apt-get install -y ros-indigo-ros-base python-wstool
 
 # Install Android NDK
 RUN wget http://dl.google.com/android/ndk/android-ndk-r8e-linux-x86_64.tar.bz2
 RUN tar -jxvf android-ndk-r8e-linux-x86_64.tar.bz2 -C /opt
 
+# Set-up environment
+ENV ANDROID_NDK /opt/android-ndk-r8e
+
 # Install g++ to avoid "CMAKE_CXX_COMPILER-NOTFOUND was not found." error
 RUN apt-get update && apt-get install -y g++
 
-# Set-up environment
-ENV ANDROID_NDK /opt/android-ndk-r8e
+# Install Android SDK
+RUN apt-get update && apt-get install -y openjdk-6-jdk lib32z1 lib32ncurses5 lib32bz2-1.0 lib32stdc++6 ant
+RUN wget http://dl.google.com/android/android-sdk_r23.0.2-linux.tgz
+RUN tar -xvf android-sdk_r23.0.2-linux.tgz -C /opt
+ENV PATH /opt/android-sdk-linux/tools:/opt/android-sdk-linux/platform-tools:$PATH
+ENV ANDROID_HOME /opt/android-sdk-linux
+RUN (while true; do echo 'y'; sleep 2; done) | android update sdk -u -t 2,3,7,8,9,11,13,16,56,57

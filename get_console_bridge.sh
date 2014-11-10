@@ -15,6 +15,10 @@ cmd_exists git || die 'git was not found'
 prefix=$(cd $1 && pwd)
 URL=https://github.com/ros/console_bridge.git
 
+echo
+echo -e '\e[34mGetting console_bridge.\e[39m'
+echo
+
 git clone $URL $prefix/console_bridge
 cd $prefix/console_bridge
 

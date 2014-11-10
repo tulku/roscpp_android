@@ -8,7 +8,6 @@
 #include <set>
 #include <fstream>
 #include <android/log.h>
-#include <amcl/amcl_node.h>
 
 #include <ros/ros.h>
 #include <std_msgs/String.h>
@@ -36,18 +35,17 @@ static double now(void) {
 
 }
 
-
 #define LASTERR strerror(errno)
 
 void chatterCallback(const std_msgs::StringConstPtr& msg){
-			ROS_INFO("%s", msg->data.c_str());
-            loop_count_++;
-            std_msgs::String msgo;
-                std::stringstream ss;
-               ss << "hello world from android ndk " << loop_count_;
-               msgo.data = ss.str();
-            chatter_pub.publish(msgo);
-    //log(msg->data.c_str());
+    ROS_INFO("%s", msg->data.c_str());
+    loop_count_++;
+    std_msgs::String msgo;
+    std::stringstream ss;
+    ss << "hello world from android ndk " << loop_count_;
+    msgo.data = ss.str();
+    chatter_pub.publish(msgo);
+    log(msg->data.c_str());
 }
 
 void android_main(android_app *papp) {
@@ -55,39 +53,42 @@ void android_main(android_app *papp) {
     app_dummy();
 
     int argc = 3;
-    char *argv[] = {"nothing_important" , "__master:=http://192.168.1.238:11311", "__ip:=192.168.1.221"};
+    // TODO: don't hardcode ip addresses
+    char *argv[] = {"nothing_important" , "__master:=http://192.168.1.100:11311", "__ip:=192.168.1.101"};
     //strcpy(argv[0], 'nothing_important');
     //argv[1] = '__master:=http://10.52.90.103:11311';
     //argv[2] = '__ip:=10.52.90.246';
     //argv[3] = '__hostname:=10.52.90.246';
-    log("GOING TO ROS INIT~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+    log("GOING TO ROS INIT");
+
     for(int i = 0; i < argc; i++){
         log(argv[i]);
     }
+
     ros::init(argc, &argv[0], "android_ndk_native_cpp");
-    log("GOING TO NODEHANDLE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+
+    log("GOING TO NODEHANDLE");
+
     std::string master_uri = ros::master::getURI();
+
     if(ros::master::check()){
-        log("ROS MASTER IS UP!!!!!!!!!>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
+        log("ROS MASTER IS UP!");
     } else {
-        log("NO ROS MASTER.______________________________________________________________________________________________");
+        log("NO ROS MASTER.");
     }
     log(master_uri.c_str());
     ros::NodeHandle n;
+
     log("GOING TO PUBLISHER");
-    chatter_pub = n.advertise<std_msgs::String>("chatter", 1000);
-    ros::Subscriber sub = n.subscribe("a_chatter", 1000, chatterCallback);
-    log("ADDING AMCL");
-    AmclNode node;
+
+    chatter_pub = n.advertise<std_msgs::String>("a_chatter", 1000);
+    ros::Subscriber sub = n.subscribe("chatter", 1000, chatterCallback);
     ros::WallRate loop_rate(100);
 
-    
+    log("GOING TO SPIN");
 
     while(ros::ok() && !papp->destroyRequested){
-
-            ros::spinOnce();
-            loop_rate.sleep();
+        ros::spinOnce();
+        loop_rate.sleep();
     }
-
-
 }

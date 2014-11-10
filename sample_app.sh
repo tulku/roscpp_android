@@ -51,3 +51,4 @@ done
 # Copy app icon
 mkdir -p $prefix/res/drawable
 cp $my_loc/files/sample_app/ic_launcher.png $prefix/res/drawable/ic_launcher.png
+

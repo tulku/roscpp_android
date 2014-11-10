@@ -10,4 +10,8 @@ if [ $# != 1 ] || [ $1 == '-h' ] || [ $1 == '--help' ]; then
     exit 1
 fi
 
+echo
+echo -e '\e[34mBuilding tinyxml.\e[39m'
+echo
+
 cmake_build $1

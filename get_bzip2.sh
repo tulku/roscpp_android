@@ -13,4 +13,8 @@ fi
 prefix=$(cd $1 && pwd)
 URL=https://github.com/osrf/bzip2_cmake.git
 
+echo
+echo -e '\e[34mGetting bzip2.\e[39m'
+echo
+
 [ -d $prefix/bzip2 ] || git clone $URL $prefix/bzip2
