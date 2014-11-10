@@ -11,7 +11,7 @@ if [ $# != 1 ] || [ $1 == '-h' ] || [ $1 == '--help' ]; then
 fi
 
 prefix=$(cd $1 && pwd)
-URL=https://github.com/Cyan4973/lz4/archive/r123.tar.gz
+URL=https://github.com/Cyan4973/lz4/archive/r124.tar.gz
 
 echo
 echo -e '\e[34mGetting lz4.\e[39m'

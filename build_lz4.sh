@@ -16,5 +16,3 @@ echo
 
 cmake_build $1
 
-cp $my_loc/../roscpp_output/libs/lz4-r123/lz4.h $my_loc/../roscpp_output/target/include/
-cp $my_loc/../roscpp_output/libs/lz4-r123/lz4hc.h $my_loc/../roscpp_output/target/include/

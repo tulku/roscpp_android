@@ -114,9 +114,7 @@ if [[ $skip -ne 1 ]] ; then
     # (TODO: remove once https://github.com/ros/ros_comm/pull/518 is accepted)
     patch -p0 -N -d $prefix < /opt/roscpp_android/patches/roscpp.patch
 
-    # patch CMakeLists.txt for lz4 library - fix xxhash location
-    # (TODO: remove once https://github.com/Cyan4973/lz4/pull/32 is accepted)
-    # this patch also enables a directive to build as a library
+    # patch CMakeLists.txt for lz4 library - Build as a library
     patch -p0 -N -d $prefix < /opt/roscpp_android/patches/lz4.patch
 
     #  Patch roslz4 - remove python stuff
@@ -141,7 +139,7 @@ run_cmd copy_boost $prefix/libs/boost
 run_cmd build_poco $prefix/libs/poco-1.4.6p2
 run_cmd build_tinyxml $prefix/libs/tinyxml
 run_cmd build_console_bridge $prefix/libs/console_bridge
-run_cmd build_lz4 $prefix/libs/lz4-r123/cmake_unofficial
+run_cmd build_lz4 $prefix/libs/lz4-r124/cmake_unofficial
 
 echo
 echo -e '\e[34mCross-compiling ROS.\e[39m'
