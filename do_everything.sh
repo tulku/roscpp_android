@@ -122,9 +122,11 @@ if [[ $skip -ne 1 ]] ; then
     patch -p0 -N -d $prefix < /opt/roscpp_android/patches/roslz4.patch
 
     #  Patch dynamic_reconfigure - Create static lib
+    # TODO: remove once https://github.com/ros/dynamic_reconfigure/pull/42 is accepted
     patch -p0 -N -d $prefix < /opt/roscpp_android/patches/dynamic_reconfigure.patch
 
     #  Patch class_loader - Create static lib
+    # TODO: remove once https://github.com/ros/class_loader/pull/20 is accepted
     patch -p0 -N -d $prefix < /opt/roscpp_android/patches/class_loader.patch
 
 fi
