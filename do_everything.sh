@@ -146,11 +146,11 @@ if [[ $skip -ne 1 ]] ; then
     patch -p0 -N -d $prefix < /opt/roscpp_android/patches/roslz4.patch
 
     # Patch dynamic_reconfigure - Create static lib
-    # https://github.com/ros/dynamic_reconfigure/pull/42 merged, need to wait until new version
+    # https://github.com/ros/dynamic_reconfigure/pull/42 merged, need to wait until new version (current 1.5.37)
     patch -p0 -N -d $prefix < /opt/roscpp_android/patches/dynamic_reconfigure.patch
 
     # Patch class_loader - Create static lib
-    # https://github.com/ros/class_loader/pull/20 merged, need to wait until new version
+    # https://github.com/ros/class_loader/pull/20 merged, need to wait until new version (current 0.3.0)
     patch -p0 -N -d $prefix < /opt/roscpp_android/patches/class_loader.patch
 
     # Patch roslib - weird issue with rospack. TODO: Need to look further (only on catkin_make_isolated)
@@ -161,7 +161,7 @@ if [[ $skip -ne 1 ]] ; then
     patch -p0 -N -d $prefix < /opt/roscpp_android/patches/collada_parser.patch
 
     # Patch urdf - Add ARCHIVE DESTINATION
-    # TODO: remove once https://github.com/ros/robot_model/pull/91 is accepted
+    # TODO: https://github.com/ros/robot_model/pull/91 merged, need to wait until new version (current 1.11.5)
     patch -p0 -N -d $prefix < /opt/roscpp_android/patches/urdf.patch
 
 fi
