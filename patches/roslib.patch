@@ -1,13 +1,20 @@
-diff --git target/catkin_ws/src/ros/roslib/CMakeLists.txt target/catkin_ws/src/ros/roslib/CMakeLists.txt
-index a328481..3d94910 100644
---- target/catkin_ws/src/ros/roslib/CMakeLists.txt
-+++ target/catkin_ws/src/ros/roslib/CMakeLists.txt
-@@ -19,7 +19,7 @@ endif()
- add_library(roslib src/package.cpp)
- target_link_libraries(roslib ${Boost_LIBRARIES} ${catkin_LIBRARIES})
+--- target/catkin_ws/src/ros/roslib/src/package.cpp	2014-10-20 23:09:44.306052059 -0300
++++ target/catkin_ws/src/ros/roslib/src/package.cpp	2014-10-17 10:03:35.026897481 -0300
+@@ -48,7 +48,7 @@
+ {
+   boost::mutex::scoped_lock lock(librospack_mutex);
  
--if(NOT (APPLE OR WIN32 OR MINGW))
-+if(NOT (APPLE OR WIN32 OR MINGW OR ANDROID))
-   target_link_libraries(roslib rt)
- endif()
+-  rospack::ROSPack rp;
++  /*rospack::ROSPack rp;
+   int ret;
+   try
+   {
+@@ -64,7 +64,7 @@
+   {
+     if ( !rp.is_quiet() )
+       std::cerr << "[rospack] " << e.what() << std::endl;
+-  }
++  }*/
+   return std::string("");
+ }
  

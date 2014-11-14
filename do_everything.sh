@@ -83,15 +83,25 @@ export RBA_TOOLCHAIN=$prefix/android.toolchain.cmake
 
 # Now get boost with a specialized build
 [ -d $prefix/libs/boost ] || run_cmd get_boost $prefix/libs
-[ -d $prefix/libs/bzip2-1.0.6 ] || run_cmd get_bzip2 $prefix/libs
+[ -d $prefix/libs/bzip2 ] || run_cmd get_bzip2 $prefix/libs
 [ -d $prefix/libs/uuid ] || run_cmd get_uuid $prefix/libs
 [ -d $prefix/libs/poco-1.4.6p2 ] || run_cmd get_poco $prefix/libs
 [ -d $prefix/libs/tinyxml ] || run_cmd get_tinyxml $prefix/libs
 [ -d $prefix/libs/catkin ] || run_cmd get_catkin $prefix/libs
 [ -d $prefix/libs/console_bridge ] || run_cmd get_console_bridge $prefix/libs
-[ -d $prefix/libs/lz4 ] || run_cmd get_lz4 $prefix/libs
+[ -d $prefix/libs/lz4-r124 ] || run_cmd get_lz4 $prefix/libs
+[ -d $prefix/libs/curl-7.39.0 ] || run_cmd get_curl $prefix/libs
+[ -d $prefix/libs/urdfdom/ ] || run_cmd get_urdfdom $prefix/libs
+[ -d $prefix/libs/urdfdom_headers ] || run_cmd get_urdfdom_headers $prefix/libs
+[ -d $prefix/libs/libiconv-1.14 ] || run_cmd get_libiconv $prefix/libs
+[ -d $prefix/libs/libxml2-2.9.1 ] || run_cmd get_libxml2 $prefix/libs
+[ -d $prefix/libs/collada-dom-2.4.0 ] || run_cmd get_collada_dom $prefix/libs
+[ -d $prefix/libs/eigen ] || run_cmd get_eigen $prefix/libs
+[ -d $prefix/libs/assimp-3.1.1 ] || run_cmd get_assimp $prefix/libs
+[ -d $prefix/libs/qhull-2012.1 ] || run_cmd get_qhull $prefix/libs
+[ -d $prefix/libs/octomap-1.6.8 ] || run_cmd get_octomap $prefix/libs
 
-run_cmd build_catkin $prefix/libs/catkin
+[ -f $prefix/target/bin/catkin_make ] || run_cmd build_catkin $prefix/libs/catkin
 . $prefix/target/setup.bash
 
 
@@ -110,24 +120,49 @@ if [[ $skip -ne 1 ]] ; then
     echo -e '\e[34mApplying patches.\e[39m'
     echo
 
+    # patch CMakeLists.txt for lz4 library - Build as a library
+    patch -p0 -N -d $prefix < /opt/roscpp_android/patches/lz4.patch
+
+    # Patch collada - Build as static lib
+    patch -p0 -N -d $prefix < /opt/roscpp_android/patches/collada_dom.patch
+
+    #  Patch assimp - Build as static lib
+    patch -p0 -N -d $prefix < /opt/roscpp_android/patches/assimp.patch
+
+    # Patch urdfdom - Build as static lib
+    patch -p0 -N -d $prefix < /opt/roscpp_android/patches/urdfdom.patch
+
+    # Patch libiconv - Remove 'gets' error
+    patch -p0 -N -d $prefix < /opt/roscpp_android/patches/libiconv.patch
+
+    ## ROS patches
+
     # Patch roscpp - avoid using ifaddrs on Android as it is not natively supported
     # (TODO: remove once https://github.com/ros/ros_comm/pull/518 is accepted)
     patch -p0 -N -d $prefix < /opt/roscpp_android/patches/roscpp.patch
 
-    # patch CMakeLists.txt for lz4 library - Build as a library
-    patch -p0 -N -d $prefix < /opt/roscpp_android/patches/lz4.patch
-
-    #  Patch roslz4 - remove python stuff
+    # Patch roslz4 - remove python stuff
     # TODO: remove once https://github.com/ros/ros_comm/pull/521 is accepted
     patch -p0 -N -d $prefix < /opt/roscpp_android/patches/roslz4.patch
 
-    #  Patch dynamic_reconfigure - Create static lib
-    # TODO: remove once https://github.com/ros/dynamic_reconfigure/pull/42 is accepted
+    # Patch dynamic_reconfigure - Create static lib
+    # https://github.com/ros/dynamic_reconfigure/pull/42 merged, need to wait until new version (current 1.5.37)
     patch -p0 -N -d $prefix < /opt/roscpp_android/patches/dynamic_reconfigure.patch
 
-    #  Patch class_loader - Create static lib
-    # TODO: remove once https://github.com/ros/class_loader/pull/20 is accepted
+    # Patch class_loader - Create static lib
+    # https://github.com/ros/class_loader/pull/20 merged, need to wait until new version (current 0.3.0)
     patch -p0 -N -d $prefix < /opt/roscpp_android/patches/class_loader.patch
+
+    # Patch roslib - weird issue with rospack. TODO: Need to look further (only on catkin_make_isolated)
+    #patch -p0 -N -d $prefix < /opt/roscpp_android/patches/roslib.patch
+
+    # Patch collada_parser - cmake detects mkstemps even though Android does not support it
+    # TODO: investigate how to prevent cmake to detect system mkstemps
+    patch -p0 -N -d $prefix < /opt/roscpp_android/patches/collada_parser.patch
+
+    # Patch urdf - Add ARCHIVE DESTINATION
+    # TODO: https://github.com/ros/robot_model/pull/91 merged, need to wait until new version (current 1.11.5)
+    patch -p0 -N -d $prefix < /opt/roscpp_android/patches/urdf.patch
 
 fi
 
@@ -135,13 +170,23 @@ echo
 echo -e '\e[34mBuilding library dependencies.\e[39m'
 echo
 
-run_cmd build_bzip2 $prefix/libs/bzip2
-run_cmd build_uuid $prefix/libs/uuid
-run_cmd copy_boost $prefix/libs/boost
-run_cmd build_poco $prefix/libs/poco-1.4.6p2
-run_cmd build_tinyxml $prefix/libs/tinyxml
-run_cmd build_console_bridge $prefix/libs/console_bridge
-run_cmd build_lz4 $prefix/libs/lz4-r124/cmake_unofficial
+[ -f $prefix/target/lib/libbz2.a ] || run_cmd build_bzip2 $prefix/libs/bzip2
+[ -f $prefix/target/lib/libuuid.a ] || run_cmd build_uuid $prefix/libs/uuid
+[ -f $prefix/target/lib/libboost_system.a ] || run_cmd copy_boost $prefix/libs/boost
+[ -f $prefix/target/lib/libPocoFoundation.a ] || run_cmd build_poco $prefix/libs/poco-1.4.6p2
+[ -f $prefix/target/lib/libtinyxml.a ] || run_cmd build_tinyxml $prefix/libs/tinyxml
+[ -f $prefix/target/lib/libconsole_bridge.a ] || run_cmd build_console_bridge $prefix/libs/console_bridge
+[ -f $prefix/target/lib/liblz4.a ] || run_cmd build_lz4 $prefix/libs/lz4-r124/cmake_unofficial
+[ -f $prefix/target/lib/libcurl.a ] || run_cmd build_curl $prefix/libs/curl-7.39.0
+[ -f $prefix/target/lib/share/urdfdom_headers/cmake/urdfdom_headers-config.cmake ] || run_cmd build_urdfdom_headers $prefix/libs/urdfdom_headers
+[ -f $prefix/target/lib/liburdfdom.a ] || run_cmd build_urdfdom $prefix/libs/urdfdom
+[ -f $prefix/target/lib/libiconv.a ] || run_cmd build_libiconv $prefix/libs/libiconv-1.14
+[ -f $prefix/target/lib/libxml2.a ] || run_cmd build_libxml2 $prefix/libs/libxml2-2.9.1
+[ -f $prefix/target/lib/libcollada-dom2.4-dp.a ] || run_cmd build_collada_dom $prefix/libs/collada-dom-2.4.0
+[ -f $prefix/target/lib/libassimp.a ] || run_cmd build_assimp $prefix/libs/assimp-3.1.1
+[ -f $prefix/target/lib/libeigen.a ] || run_cmd build_eigen $prefix/libs/eigen
+[ -f $prefix/target/lib/libqhullstatic.a ] || run_cmd build_qhull $prefix/libs/qhull-2012.1
+[ -f $prefix/target/share/octomap/octomap-config.cmake ] || run_cmd build_octomap $prefix/libs/octomap-1.6.8
 
 echo
 echo -e '\e[34mCross-compiling ROS.\e[39m'
@@ -162,6 +207,10 @@ run_cmd setup_ndk_project $prefix/roscpp_android_ndk
 echo
 echo -e '\e[34mCreating Android.mk.\e[39m'
 echo
+
+# Library path is incorrect for urdf.
+# TODO: Need to investigate the source of the issue
+sed -i 's/set(libraries "urdf;/set(libraries "/g' $CMAKE_PREFIX_PATH/share/urdf/cmake/urdfConfig.cmake
 
 run_cmd create_android_mk $prefix/target/catkin_ws/src $prefix/roscpp_android_ndk
 
