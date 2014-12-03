@@ -171,7 +171,7 @@ if [[ $skip -ne 1 ]] ; then
 
     # Patch tf2_ros - Remove Python dependency
     # TODO: remove once https://github.com/ros/geometry_experimental/pull/72 is accepted
-    #patch -p0 -N -d $prefix < /opt/roscpp_android/patches/tf2_ros.patch
+    patch -p0 -N -d $prefix < /opt/roscpp_android/patches/tf2_ros.patch
 
 fi
 
