@@ -153,7 +153,8 @@ if [[ $skip -ne 1 ]] ; then
     # https://github.com/ros/class_loader/pull/20 merged, need to wait until new version (current 0.3.0)
     patch -p0 -N -d $prefix < /opt/roscpp_android/patches/class_loader.patch
 
-    # Patch roslib - weird issue with rospack. TODO: Need to look further (only on catkin_make_isolated)
+    # Patch roslib - weird issue with rospack.
+    # TODO: Need to look further (only on catkin_make_isolated)
     #patch -p0 -N -d $prefix < /opt/roscpp_android/patches/roslib.patch
 
     # Patch collada_parser - cmake detects mkstemps even though Android does not support it
@@ -163,6 +164,14 @@ if [[ $skip -ne 1 ]] ; then
     # Patch urdf - Add ARCHIVE DESTINATION
     # TODO: https://github.com/ros/robot_model/pull/91 merged, need to wait until new version (current 1.11.5)
     patch -p0 -N -d $prefix < /opt/roscpp_android/patches/urdf.patch
+
+    # Patch tf - Add ARCHIVE DESTINATION and don't do tests for android and remove Python lib
+    # TODO: remove once https://github.com/ros/geometry/pull/76 is accepted
+    patch -p0 -N -d $prefix < /opt/roscpp_android/patches/tf.patch
+
+    # Patch tf2_ros - Remove Python dependency
+    # TODO: remove once https://github.com/ros/geometry_experimental/pull/72 is accepted
+    #patch -p0 -N -d $prefix < /opt/roscpp_android/patches/tf2_ros.patch
 
 fi
 
