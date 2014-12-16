@@ -1,15 +1,21 @@
---- target/catkin_ws/src/image_common/camera_calibration_parsers/CMakeLists.txt
-+++ target/catkin_ws/src/image_common/camera_calibration_parsers/CMakeLists.txt
-@@ -11,11 +11,8 @@
+--- target/catkin_ws/src/image_common/camera_calibration_parsers/CMakeLists.txt	2014-12-12 11:09:27.441346158 -0300
++++ target/catkin_ws/src/image_common/camera_calibration_parsers/CMakeLists.txt	2014-12-12 11:10:08.517345216 -0300
+@@ -11,6 +11,7 @@
    CATKIN_DEPENDS sensor_msgs
  )
  
--find_package(PkgConfig)
--pkg_check_modules(NEW_YAMLCPP yaml-cpp>=0.5)
--if(NEW_YAMLCPP_FOUND)
++if(NOT ANDROID)
+ find_package(PkgConfig)
+ pkg_check_modules(YAML_CPP yaml-cpp)
+ if(${YAML_CPP_VERSION} VERSION_GREATER 0.5)
+@@ -18,6 +19,10 @@
+ endif()
+ include_directories(${YAML_CPP_INCLUDE_DIRS})
+ link_directories(${YAML_CPP_LIBRARY_DIRS})
++else()
 +find_package(YamlCpp)
- add_definitions(-DHAVE_NEW_YAMLCPP)
--endif(NEW_YAMLCPP_FOUND)
++add_definitions(-DHAVE_NEW_YAMLCPP)
++endif()
  
  # define the library
  add_library(${PROJECT_NAME}
