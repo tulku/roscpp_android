@@ -206,6 +206,10 @@
     local-name: geometry_experimental/tf2
     uri: https://github.com/ros-gbp/geometry_experimental-release/archive/release/indigo/tf2/0.5.6-0.tar.gz
     version: geometry_experimental-release-release-indigo-tf2-0.5.6-0
+#- tar:
+#    local-name: geometry_experimental/tf2_geometry_msgs
+#    uri: https://github.com/ros-gbp/geometry_experimental-release/archive/release/indigo/tf2_geometry_msgs/0.5.6-0.tar.gz
+#    version: geometry_experimental-release-release-indigo-tf2_geometry_msgs-0.5.6-0
 - tar:
     local-name: geometry_experimental/tf2_msgs
     uri: https://github.com/ros-gbp/geometry_experimental-release/archive/release/indigo/tf2_msgs/0.5.6-0.tar.gz
@@ -219,6 +223,87 @@
     uri: https://github.com/ros-gbp/geometry_experimental-release/archive/release/indigo/tf2_ros/0.5.6-0.tar.gz
     version: geometry_experimental-release-release-indigo-tf2_ros-0.5.6-0
 - tar:
+    local-name: image_common/camera_calibration_parsers
+    uri: https://github.com/ros-gbp/image_common-release/archive/release/indigo/camera_calibration_parsers/1.11.4-0.tar.gz
+    version: image_common-release-release-indigo-camera_calibration_parsers-1.11.4-0
+- tar:
+    local-name: image_common/camera_info_manager
+    uri: https://github.com/ros-gbp/image_common-release/archive/release/indigo/camera_info_manager/1.11.4-0.tar.gz
+    version: image_common-release-release-indigo-camera_info_manager-1.11.4-0
+- tar:
+    local-name: image_common/image_common
+    uri: https://github.com/ros-gbp/image_common-release/archive/release/indigo/image_common/1.11.4-0.tar.gz
+    version: image_common-release-release-indigo-image_common-1.11.4-0
+- tar:
+    local-name: image_common/image_transport
+    uri: https://github.com/ros-gbp/image_common-release/archive/release/indigo/image_transport/1.11.4-0.tar.gz
+    version: image_common-release-release-indigo-image_transport-1.11.4-0
+- tar:
+    local-name: image_common/polled_camera
+    uri: https://github.com/ros-gbp/image_common-release/archive/release/indigo/polled_camera/1.11.4-0.tar.gz
+    version: image_common-release-release-indigo-polled_camera-1.11.4-0
+- tar:
+    local-name: image_pipeline/camera_calibration
+    uri: https://github.com/ros-gbp/image_pipeline-release/archive/release/indigo/camera_calibration/1.12.11-0.tar.gz
+    version: image_pipeline-release-release-indigo-camera_calibration-1.12.11-0
+# Depends on eigen_conversions
+#- tar:
+#    local-name: image_pipeline/depth_image_proc
+#    uri: https://github.com/ros-gbp/image_pipeline-release/archive/release/indigo/depth_image_proc/1.12.11-0.tar.gz
+#    version: image_pipeline-release-release-indigo-depth_image_proc-1.12.11-0
+- tar:
+    local-name: image_pipeline/image_pipeline
+    uri: https://github.com/ros-gbp/image_pipeline-release/archive/release/indigo/image_pipeline/1.12.11-0.tar.gz
+    version: image_pipeline-release-release-indigo-image_pipeline-1.12.11-0
+- tar:
+    local-name: image_pipeline/image_proc
+    uri: https://github.com/ros-gbp/image_pipeline-release/archive/release/indigo/image_proc/1.12.11-0.tar.gz
+    version: image_pipeline-release-release-indigo-image_proc-1.12.11-0
+#- tar:
+#    local-name: image_pipeline/image_rotate
+#    uri: https://github.com/ros-gbp/image_pipeline-release/archive/release/indigo/image_rotate/1.12.11-0.tar.gz
+#    version: image_pipeline-release-release-indigo-image_rotate-1.12.11-0
+- tar:
+    local-name: image_pipeline/image_view
+    uri: https://github.com/ros-gbp/image_pipeline-release/archive/release/indigo/image_view/1.12.11-0.tar.gz
+    version: image_pipeline-release-release-indigo-image_view-1.12.11-0
+- tar:
+    local-name: image_pipeline/stereo_image_proc
+    uri: https://github.com/ros-gbp/image_pipeline-release/archive/release/indigo/stereo_image_proc/1.12.11-0.tar.gz
+    version: image_pipeline-release-release-indigo-stereo_image_proc-1.12.11-0
+- tar:
+    local-name: image_transport_plugins/compressed_depth_image_transport
+    uri: https://github.com/ros-gbp/image_transport_plugins-release/archive/release/indigo/compressed_depth_image_transport/1.9.1-0.tar.gz
+    version: image_transport_plugins-release-release-indigo-compressed_depth_image_transport-1.9.1-0
+- tar:
+    local-name: image_transport_plugins/compressed_image_transport
+    uri: https://github.com/ros-gbp/image_transport_plugins-release/archive/release/indigo/compressed_image_transport/1.9.1-0.tar.gz
+    version: image_transport_plugins-release-release-indigo-compressed_image_transport-1.9.1-0
+- tar:
+    local-name: image_transport_plugins/image_transport_plugins
+    uri: https://github.com/ros-gbp/image_transport_plugins-release/archive/release/indigo/image_transport_plugins/1.9.1-0.tar.gz
+    version: image_transport_plugins-release-release-indigo-image_transport_plugins-1.9.1-0
+#- tar:
+#    local-name: image_transport_plugins/theora_image_transport
+#    uri: https://github.com/ros-gbp/image_transport_plugins-release/archive/release/indigo/theora_image_transport/1.9.1-0.tar.gz
+#    version: image_transport_plugins-release-release-indigo-theora_image_transport-1.9.1-0
+- tar:
+    local-name: laser_assembler
+    uri: https://github.com/ros-gbp/laser_assembler-release/archive/release/indigo/laser_assembler/1.7.2-0.tar.gz
+    version: laser_assembler-release-release-indigo-laser_assembler-1.7.2-0
+- tar:
+    local-name: laser_filters
+    uri: https://github.com/ros-gbp/laser_filters-release/archive/release/indigo/laser_filters/1.7.3-0.tar.gz
+    version: laser_filters-release-release-indigo-laser_filters-1.7.3-0
+- tar:
+    local-name: laser_geometry
+    uri: https://github.com/ros-gbp/laser_geometry-release/archive/release/indigo/laser_geometry/1.6.2-0.tar.gz
+    version: laser_geometry-release-release-indigo-laser_geometry-1.6.2-0
+- tar:
+    local-name: laser_pipeline
+    uri: https://github.com/ros-gbp/laser_pipeline-release/archive/release/indigo/laser_pipeline/1.6.1-0.tar.gz
+    version: laser_pipeline-release-release-indigo-laser_pipeline-1.6.1-0
+- tar:
     local-name: message_generation
     uri: https://github.com/ros-gbp/message_generation-release/archive/release/indigo/message_generation/0.2.10-0.tar.gz
     version: message_generation-release-release-indigo-message_generation-0.2.10-0
@@ -226,6 +311,10 @@
     local-name: message_runtime
     uri: https://github.com/ros-gbp/message_runtime-release/archive/release/indigo/message_runtime/0.4.12-0.tar.gz
     version: message_runtime-release-release-indigo-message_runtime-0.4.12-0
+- tar:
+    local-name: metapackages/perception
+    uri: https://github.com/ros-gbp/metapackages-release/archive/release/indigo/perception/1.1.3-0.tar.gz
+    version: metapackages-release-release-indigo-perception-1.1.3-0
 - tar:
     local-name: metapackages/robot
     uri: https://github.com/ros-gbp/metapackages-release/archive/release/indigo/robot/1.1.3-0.tar.gz
@@ -264,6 +353,22 @@
 #    local-name: orocos_kinematics_dynamics/python_orocos_kdl
 #    uri: https://github.com/smits/orocos-kdl-release/archive/release/indigo/python_orocos_kdl/1.3.0-0.tar.gz
 #    version: orocos-kdl-release-release-indigo-python_orocos_kdl-1.3.0-0
+#- tar:
+#    local-name: pcl_conversions
+#    uri: https://github.com/ros-gbp/pcl_conversions-release/archive/release/indigo/pcl_conversions/0.2.0-0.tar.gz
+#    version: pcl_conversions-release-release-indigo-pcl_conversions-0.2.0-0
+- tar:
+    local-name: pcl_msgs
+    uri: https://github.com/ros-gbp/pcl_msgs-release/archive/release/indigo/pcl_msgs/0.2.0-0.tar.gz
+    version: pcl_msgs-release-release-indigo-pcl_msgs-0.2.0-0
+#- tar:
+#    local-name: perception_pcl/pcl_ros
+#    uri: https://github.com/ros-gbp/perception_pcl-release/archive/release/indigo/pcl_ros/1.2.2-0.tar.gz
+#    version: perception_pcl-release-release-indigo-pcl_ros-1.2.2-0
+#- tar:
+#    local-name: perception_pcl/perception_pcl
+#    uri: https://github.com/ros-gbp/perception_pcl-release/archive/release/indigo/perception_pcl/1.2.2-0.tar.gz
+#    version: perception_pcl-release-release-indigo-perception_pcl-1.2.2-0
 - tar:
     local-name: pluginlib
     uri: https://github.com/ros-gbp/pluginlib-release/archive/release/indigo/pluginlib/1.10.0-3.tar.gz
@@ -280,7 +385,6 @@
     local-name: robot_model/collada_parser
     uri: https://github.com/ros-gbp/robot_model-release/archive/release/indigo/collada_parser/1.11.5-0.tar.gz
     version: robot_model-release-release-indigo-collada_parser-1.11.5-0
-## Depends on tf
 #- tar:
 #    local-name: robot_model/collada_urdf
 #    uri: https://github.com/ros-gbp/robot_model-release/archive/release/indigo/collada_urdf/1.11.5-0.tar.gz
@@ -512,6 +616,18 @@
     local-name: std_msgs
     uri: https://github.com/ros-gbp/std_msgs-release/archive/release/indigo/std_msgs/0.5.9-1.tar.gz
     version: std_msgs-release-release-indigo-std_msgs-0.5.9-1
+- tar:
+    local-name: vision_opencv/cv_bridge
+    uri: https://github.com/ros-gbp/vision_opencv-release/archive/release/indigo/cv_bridge/1.11.6-0.tar.gz
+    version: vision_opencv-release-release-indigo-cv_bridge-1.11.6-0
+- tar:
+    local-name: vision_opencv/image_geometry
+    uri: https://github.com/ros-gbp/vision_opencv-release/archive/release/indigo/image_geometry/1.11.6-0.tar.gz
+    version: vision_opencv-release-release-indigo-image_geometry-1.11.6-0
+- tar:
+    local-name: vision_opencv/vision_opencv
+    uri: https://github.com/ros-gbp/vision_opencv-release/archive/release/indigo/vision_opencv/1.11.6-0.tar.gz
+    version: vision_opencv-release-release-indigo-vision_opencv-1.11.6-0
 - tar:
     local-name: xacro
     uri: https://github.com/ros-gbp/xacro-release/archive/release/indigo/xacro/1.9.2-0.tar.gz

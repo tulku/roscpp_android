@@ -1,0 +1,11 @@
+--- target/catkin_ws/src/laser_assembler/CMakeLists.txt	2014-12-11 16:17:06.602204808 -0300
++++ target/catkin_ws/src/laser_assembler/CMakeLists.txt	2014-12-11 16:17:29.254204288 -0300
+@@ -67,7 +67,7 @@
+ 
+ ## unit testing
+ 
+-if(CATKIN_ENABLE_TESTING)
++if(CATKIN_ENABLE_TESTING AND NOT ANDROID)
+   add_executable(periodic_snapshotter examples/periodic_snapshotter.cpp)
+   target_link_libraries(periodic_snapshotter ${catkin_LIBRARIES} ${Boost_LIBRARIES})
+   add_dependencies(periodic_snapshotter ${PROJECT_NAME}_gencpp)
