@@ -1,5 +1,5 @@
---- target/catkin_ws/src/geometry/tf/CMakeLists.txt	2014-11-24 12:49:09.066695276 -0300
-+++ target/catkin_ws/src/geometry/tf/CMakeLists.txt	2014-11-27 14:48:42.517374659 -0300
+--- catkin_ws/src/geometry/tf/CMakeLists.txt	2014-11-24 12:49:09.066695276 -0300
++++ catkin_ws/src/geometry/tf/CMakeLists.txt	2014-11-27 14:48:42.517374659 -0300
 @@ -46,7 +46,7 @@
  target_link_libraries(static_transform_publisher ${PROJECT_NAME})
  

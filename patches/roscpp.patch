@@ -1,5 +1,5 @@
---- target/catkin_ws/src/ros_comm/roscpp/src/libros/transport/transport.cpp	2014-10-21 00:03:18.473905763 -0300
-+++ target/catkin_ws/src/ros_comm/roscpp/src/libros/transport/transport.cpp	2014-10-21 00:01:45.081910014 -0300
+--- catkin_ws/src/ros_comm/roscpp/src/libros/transport/transport.cpp	2014-10-21 00:03:18.473905763 -0300
++++ catkin_ws/src/ros_comm/roscpp/src/libros/transport/transport.cpp	2014-10-21 00:01:45.081910014 -0300
 @@ -34,7 +34,7 @@
  
  #include "ros/transport/transport.h"

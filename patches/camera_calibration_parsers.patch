@@ -1,5 +1,5 @@
---- target/catkin_ws/src/image_common/camera_calibration_parsers/CMakeLists.txt	2014-12-12 11:09:27.441346158 -0300
-+++ target/catkin_ws/src/image_common/camera_calibration_parsers/CMakeLists.txt	2014-12-12 11:10:08.517345216 -0300
+--- catkin_ws/src/image_common/camera_calibration_parsers/CMakeLists.txt	2014-12-12 11:09:27.441346158 -0300
++++ catkin_ws/src/image_common/camera_calibration_parsers/CMakeLists.txt	2014-12-12 11:10:08.517345216 -0300
 @@ -11,6 +11,7 @@
    CATKIN_DEPENDS sensor_msgs
  )

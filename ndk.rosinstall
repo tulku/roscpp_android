@@ -182,12 +182,10 @@
 #    local-name: geometry/eigen_conversions
 #    uri: https://github.com/ros-gbp/geometry-release/archive/release/indigo/eigen_conversions/1.11.3-1.tar.gz
 #    version: geometry-release-release-indigo-eigen_conversions-1.11.3-1
-
-# Need to test this
-#- tar:
-#    local-name: geometry/geometry
-#    uri: https://github.com/ros-gbp/geometry-release/archive/release/indigo/geometry/1.11.3-1.tar.gz
-#    version: geometry-release-release-indigo-geometry-1.11.3-1
+- tar:
+    local-name: geometry/geometry
+    uri: https://github.com/ros-gbp/geometry-release/archive/release/indigo/geometry/1.11.3-1.tar.gz
+    version: geometry-release-release-indigo-geometry-1.11.3-1
 ## Depends on orocos_kdl
 #- tar:
 #    local-name: geometry/kdl_conversions

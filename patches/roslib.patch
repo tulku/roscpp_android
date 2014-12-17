@@ -1,5 +1,5 @@
---- target/catkin_ws/src/ros/roslib/src/package.cpp	2014-10-20 23:09:44.306052059 -0300
-+++ target/catkin_ws/src/ros/roslib/src/package.cpp	2014-10-17 10:03:35.026897481 -0300
+--- catkin_ws/src/ros/roslib/src/package.cpp	2014-10-20 23:09:44.306052059 -0300
++++ catkin_ws/src/ros/roslib/src/package.cpp	2014-10-17 10:03:35.026897481 -0300
 @@ -48,7 +48,7 @@
  {
    boost::mutex::scoped_lock lock(librospack_mutex);

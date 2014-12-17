@@ -1,5 +1,5 @@
---- target/catkin_ws/src/laser_filters/CMakeLists.txt	2014-12-11 16:15:48.346206603 -0300
-+++ target/catkin_ws/src/laser_filters/CMakeLists.txt	2014-12-11 17:59:07.918064376 -0300
+--- catkin_ws/src/laser_filters/CMakeLists.txt	2014-12-11 16:15:48.346206603 -0300
++++ catkin_ws/src/laser_filters/CMakeLists.txt	2014-12-11 17:59:07.918064376 -0300
 @@ -44,7 +44,7 @@
  add_executable(generic_laser_filter_node src/generic_laser_filter_node.cpp)
  target_link_libraries(generic_laser_filter_node ${catkin_LIBRARIES} ${Boost_LIBRARIES} ${Eigen_LIBRARIES})
