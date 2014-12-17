@@ -225,11 +225,11 @@ echo
 [ -f $prefix/target/lib/libuuid.a ] || run_cmd build_uuid $prefix/libs/uuid
 [ -f $prefix/target/lib/libboost_system.a ] || run_cmd copy_boost $prefix/libs/boost
 [ -f $prefix/target/lib/libPocoFoundation.a ] || run_cmd build_poco $prefix/libs/poco-1.4.6p2
-[ -f $prefix/target/share/tinyxml/cmake/tinyxml-config.cmake ] || run_cmd build_tinyxml $prefix/libs/tinyxml
+[ -f $prefix/target/lib/libtinyxml.a ] || run_cmd build_tinyxml $prefix/libs/tinyxml
 [ -f $prefix/target/lib/libconsole_bridge.a ] || run_cmd build_console_bridge $prefix/libs/console_bridge
 [ -f $prefix/target/lib/liblz4.a ] || run_cmd build_lz4 $prefix/libs/lz4-r124/cmake_unofficial
 [ -f $prefix/target/lib/libcurl.a ] || run_cmd build_curl $prefix/libs/curl-7.39.0
-[ -f $prefix/target/lib/share/urdfdom_headers/cmake/urdfdom_headers-config.cmake ] || run_cmd build_urdfdom_headers $prefix/libs/urdfdom_headers
+[ -d $prefix/target/include/urdf_model ] || run_cmd build_urdfdom_headers $prefix/libs/urdfdom_headers
 [ -f $prefix/target/lib/liburdfdom.a ] || run_cmd build_urdfdom $prefix/libs/urdfdom
 [ -f $prefix/target/lib/libiconv.a ] || run_cmd build_libiconv $prefix/libs/libiconv-1.14
 [ -f $prefix/target/lib/libxml2.a ] || run_cmd build_libxml2 $prefix/libs/libxml2-2.9.1
