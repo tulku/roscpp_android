@@ -1,7 +1,7 @@
-diff --git target/catkin_ws/src/image_common/image_transport/CMakeLists.txt target/catkin_ws/src/image_common/image_transport/CMakeLists.txt
+diff --git catkin_ws/src/image_common/image_transport/CMakeLists.txt catkin_ws/src/image_common/image_transport/CMakeLists.txt
 index 9598709..55fb255 100644
---- target/catkin_ws/src/image_common/image_transport/CMakeLists.txt
-+++ target/catkin_ws/src/image_common/image_transport/CMakeLists.txt
+--- catkin_ws/src/image_common/image_transport/CMakeLists.txt
++++ catkin_ws/src/image_common/image_transport/CMakeLists.txt
 @@ -13,6 +13,8 @@ find_package(catkin REQUIRED
  
  find_package(Boost REQUIRED)

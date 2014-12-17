@@ -1,7 +1,7 @@
-diff --git target/catkin_ws/src/class_loader/CMakeLists.txt target/catkin_ws/src/class_loader/CMakeLists.txt
+diff --git catkin_ws/src/class_loader/CMakeLists.txt catkin_ws/src/class_loader/CMakeLists.txt
 index da1c8bd..535e0b6 100644
---- target/catkin_ws/src/class_loader/CMakeLists.txt
-+++ target/catkin_ws/src/class_loader/CMakeLists.txt
+--- catkin_ws/src/class_loader/CMakeLists.txt
++++ catkin_ws/src/class_loader/CMakeLists.txt
 @@ -23,7 +23,7 @@ set(${PROJECT_NAME}_SRCS
    src/meta_object.cpp
    src/multi_library_class_loader.cpp

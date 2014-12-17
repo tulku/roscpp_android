@@ -1,7 +1,11 @@
 #!/bin/bash
 
-# TODO: Check that environment actually exists
-source /opt/ros/indigo/setup.bash
+if [[ -f /opt/ros/indigo/setup.bash ]] ; then
+    source /opt/ros/indigo/setup.bash
+else
+    echo "ROS environment not found, please install it"
+    exit 1
+fi
 
 my_loc="$(cd "$(dirname $0)" && pwd)"
 source $my_loc/config.sh
@@ -106,17 +110,12 @@ export RBA_TOOLCHAIN=$prefix/android.toolchain.cmake
 [ -f $prefix/target/bin/catkin_make ] || run_cmd build_catkin $prefix/libs/catkin
 . $prefix/target/setup.bash
 
-
-# Remove catkin package information from target since we will be cross-compiling it,
-# otherwise catkin will detect it as duplicate
-rm -rf $prefix/target/share/*
-
 echo
 echo -e '\e[34mGetting ROS packages\e[39m'
 echo
 
 if [[ $skip -ne 1 ]] ; then
-    run_cmd get_ros_stuff $prefix/libs
+    run_cmd get_ros_stuff $prefix
 
     echo
     echo -e '\e[34mApplying patches.\e[39m'
@@ -247,9 +246,9 @@ echo -e '\e[34mCross-compiling ROS.\e[39m'
 echo
 
 if [[ $debugging -eq 1 ]];then
-    run_cmd build_cpp --debug-symbols
+    run_cmd build_cpp $prefix --debug-symbols
 else
-    run_cmd build_cpp
+    run_cmd build_cpp $prefix
 fi
 
 echo
@@ -266,7 +265,7 @@ echo
 # TODO: Need to investigate the source of the issue
 sed -i 's/set(libraries "urdf;/set(libraries "/g' $CMAKE_PREFIX_PATH/share/urdf/cmake/urdfConfig.cmake
 
-run_cmd create_android_mk $prefix/target/catkin_ws/src $prefix/roscpp_android_ndk
+run_cmd create_android_mk $prefix/catkin_ws/src $prefix/roscpp_android_ndk
 
 if [[ $debugging -eq 1 ]];then
     sed -i "s/#LOCAL_EXPORT_CFLAGS/LOCAL_EXPORT_CFLAGS/g" $prefix/roscpp_android_ndk/Android.mk

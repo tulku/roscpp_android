@@ -1,5 +1,5 @@
---- target/catkin_ws/src/vision_opencv/cv_bridge/CMakeLists.txt	2014-12-16 13:23:41.106085276 -0300
-+++ target/catkin_ws/src/vision_opencv/cv_bridge/CMakeLists.txt	2014-12-16 13:25:29.358088880 -0300
+--- catkin_ws/src/vision_opencv/cv_bridge/CMakeLists.txt	2014-12-16 13:23:41.106085276 -0300
++++ catkin_ws/src/vision_opencv/cv_bridge/CMakeLists.txt	2014-12-16 13:25:29.358088880 -0300
 @@ -3,7 +3,11 @@
  
  find_package(catkin REQUIRED COMPONENTS rosconsole sensor_msgs)
@@ -22,8 +22,8 @@
  add_subdirectory(src)
  if(CATKIN_ENABLE_TESTING)
    add_subdirectory(test)
---- target/catkin_ws/src/vision_opencv/cv_bridge/src/CMakeLists.txt	2014-12-12 14:16:26.261088783 -0300
-+++ target/catkin_ws/src/vision_opencv/cv_bridge/src/CMakeLists.txt	2014-12-12 14:17:17.117087617 -0300
+--- catkin_ws/src/vision_opencv/cv_bridge/src/CMakeLists.txt	2014-12-12 14:16:26.261088783 -0300
++++ catkin_ws/src/vision_opencv/cv_bridge/src/CMakeLists.txt	2014-12-12 14:17:17.117087617 -0300
 @@ -5,6 +5,7 @@
  
  install(TARGETS ${PROJECT_NAME} DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION})

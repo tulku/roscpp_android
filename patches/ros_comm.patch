@@ -1,7 +1,7 @@
-diff --git target/catkin_ws/src/ros_comm/roscpp/src/libros/transport/transport_udp.cpp target/catkin_ws/src/ros_comm/roscpp/src/libros/transport/transport_udp.cpp
+diff --git catkin_ws/src/ros_comm/roscpp/src/libros/transport/transport_udp.cpp catkin_ws/src/ros_comm/roscpp/src/libros/transport/transport_udp.cpp
 index 9111544..759463d 100644
---- target/catkin_ws/src/ros_comm/roscpp/src/libros/transport/transport_udp.cpp
-+++ target/catkin_ws/src/ros_comm/roscpp/src/libros/transport/transport_udp.cpp
+--- catkin_ws/src/ros_comm/roscpp/src/libros/transport/transport_udp.cpp
++++ catkin_ws/src/ros_comm/roscpp/src/libros/transport/transport_udp.cpp
 @@ -45,6 +45,9 @@
    #include <sys/types.h>
    #include <sys/uio.h>
@@ -12,10 +12,10 @@ index 9111544..759463d 100644
  #endif
  
  namespace ros
-diff --git target/catkin_ws/src/ros_comm/rosout/rosout.cpp target/catkin_ws/src/ros_comm/rosout/rosout.cpp
+diff --git catkin_ws/src/ros_comm/rosout/rosout.cpp catkin_ws/src/ros_comm/rosout/rosout.cpp
 index a76ac8a..9a74414 100644
---- target/catkin_ws/src/ros_comm/rosout/rosout.cpp
-+++ target/catkin_ws/src/ros_comm/rosout/rosout.cpp
+--- catkin_ws/src/ros_comm/rosout/rosout.cpp
++++ catkin_ws/src/ros_comm/rosout/rosout.cpp
 @@ -41,6 +41,12 @@
     #undef ERROR
    #endif
@@ -29,8 +29,8 @@ index a76ac8a..9a74414 100644
  #include "rosgraph_msgs/Log.h"
  
  /**
---- target/catkin_ws/src/ros_comm/roscpp/src/libros/rosout_appender.cpp     2014-09-11 16:58:44.489847208 -0300
-+++ target/catkin_ws/src/ros_comm/roscpp/src/libros/rosout_appender.cpp     2014-09-11 16:53:48.145852515 -0300
+--- catkin_ws/src/ros_comm/roscpp/src/libros/rosout_appender.cpp     2014-09-11 16:58:44.489847208 -0300
++++ catkin_ws/src/ros_comm/roscpp/src/libros/rosout_appender.cpp     2014-09-11 16:53:48.145852515 -0300
 @@ -39,6 +39,12 @@
  #include "ros/advertise_options.h"
  #include "ros/names.h"

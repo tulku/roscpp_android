@@ -1,5 +1,5 @@
---- target/catkin_ws/src/image_pipeline/image_view/src/nodes/stereo_view.cpp	2014-12-16 15:40:10.110357891 -0300
-+++ target/catkin_ws/src/image_pipeline/image_view/src/nodes/stereo_view.cpp	2014-12-16 14:39:00.442235726 -0300
+--- catkin_ws/src/image_pipeline/image_view/src/nodes/stereo_view.cpp	2014-12-16 15:40:10.110357891 -0300
++++ catkin_ws/src/image_pipeline/image_view/src/nodes/stereo_view.cpp	2014-12-16 14:39:00.442235726 -0300
 @@ -311,7 +311,7 @@
      255,  0, 0,
    };

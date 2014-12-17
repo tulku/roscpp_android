@@ -1,5 +1,5 @@
---- target/catkin_ws/src/robot_model/collada_parser/CMakeLists.txt	2014-11-12 16:50:45.229284101 -0300
-+++ target/catkin_ws/src/robot_model/collada_parser/CMakeLists.txt	2014-11-12 16:56:55.977275596 -0300
+--- catkin_ws/src/robot_model/collada_parser/CMakeLists.txt	2014-11-12 16:50:45.229284101 -0300
++++ catkin_ws/src/robot_model/collada_parser/CMakeLists.txt	2014-11-12 16:56:55.977275596 -0300
 @@ -26,11 +26,11 @@
  
  # necessary for collada reader to create the temporary dae files due

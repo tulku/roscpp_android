@@ -1,5 +1,5 @@
---- target/catkin_ws/src/ros_comm/xmlrpcpp/src/XmlRpcDispatch.cpp	2014-12-11 16:03:20.678223756 -0300
-+++ target/catkin_ws/src/ros_comm/xmlrpcpp/src/XmlRpcDispatch.cpp	2014-12-11 16:01:49.598225845 -0300
+--- catkin_ws/src/ros_comm/xmlrpcpp/src/XmlRpcDispatch.cpp	2014-12-11 16:03:20.678223756 -0300
++++ catkin_ws/src/ros_comm/xmlrpcpp/src/XmlRpcDispatch.cpp	2014-12-11 16:01:49.598225845 -0300
 @@ -6,6 +6,7 @@
  #include <math.h>
  #include <errno.h>

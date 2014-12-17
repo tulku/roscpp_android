@@ -1,5 +1,5 @@
---- target/catkin_ws/src/dynamic_reconfigure/CMakeLists.txt
-+++ target/catkin_ws/src/dynamic_reconfigure/CMakeLists.txt
+--- catkin_ws/src/dynamic_reconfigure/CMakeLists.txt
++++ catkin_ws/src/dynamic_reconfigure/CMakeLists.txt
 @@ -35,7 +35,7 @@ catkin_package(LIBRARIES dynamic_reconfigure_config_init_mutex
                 CFG_EXTRAS dynamic_reconfigure-extras.cmake
  )
