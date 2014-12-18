@@ -351,10 +351,10 @@
 #    local-name: orocos_kinematics_dynamics/python_orocos_kdl
 #    uri: https://github.com/smits/orocos-kdl-release/archive/release/indigo/python_orocos_kdl/1.3.0-0.tar.gz
 #    version: orocos-kdl-release-release-indigo-python_orocos_kdl-1.3.0-0
-#- tar:
-#    local-name: pcl_conversions
-#    uri: https://github.com/ros-gbp/pcl_conversions-release/archive/release/indigo/pcl_conversions/0.2.0-0.tar.gz
-#    version: pcl_conversions-release-release-indigo-pcl_conversions-0.2.0-0
+- tar:
+    local-name: pcl_conversions
+    uri: https://github.com/ros-gbp/pcl_conversions-release/archive/release/indigo/pcl_conversions/0.2.0-0.tar.gz
+    version: pcl_conversions-release-release-indigo-pcl_conversions-0.2.0-0
 - tar:
     local-name: pcl_msgs
     uri: https://github.com/ros-gbp/pcl_msgs-release/archive/release/indigo/pcl_msgs/0.2.0-0.tar.gz
