@@ -106,6 +106,8 @@ export RBA_TOOLCHAIN=$prefix/android.toolchain.cmake
 [ -d $prefix/libs/octomap-1.6.8 ] || run_cmd get_octomap $prefix/libs
 [ -d $prefix/libs/yaml-cpp ] || run_cmd get_yaml_cpp $prefix/libs
 [ -d $prefix/libs/opencv-2.4.9 ] || run_cmd get_opencv $prefix/libs
+[ -d $prefix/libs/flann ] || run_cmd get_flann $prefix/libs
+[ -d $prefix/libs/pcl ] || run_cmd get_pcl $prefix/libs
 
 [ -f $prefix/target/bin/catkin_make ] || run_cmd build_catkin $prefix/libs/catkin
 . $prefix/target/setup.bash
@@ -229,7 +231,7 @@ echo
 [ -f $prefix/target/lib/libconsole_bridge.a ] || run_cmd build_console_bridge $prefix/libs/console_bridge
 [ -f $prefix/target/lib/liblz4.a ] || run_cmd build_lz4 $prefix/libs/lz4-r124/cmake_unofficial
 [ -f $prefix/target/lib/libcurl.a ] || run_cmd build_curl $prefix/libs/curl-7.39.0
-[ -d $prefix/target/include/urdf_model ] || run_cmd build_urdfdom_headers $prefix/libs/urdfdom_headers
+[ -f $prefix/target/lib/liburdfdom_model.a ] || run_cmd build_urdfdom_headers $prefix/libs/urdfdom_headers
 [ -f $prefix/target/lib/liburdfdom.a ] || run_cmd build_urdfdom $prefix/libs/urdfdom
 [ -f $prefix/target/lib/libiconv.a ] || run_cmd build_libiconv $prefix/libs/libiconv-1.14
 [ -f $prefix/target/lib/libxml2.a ] || run_cmd build_libxml2 $prefix/libs/libxml2-2.9.1
@@ -237,9 +239,12 @@ echo
 [ -f $prefix/target/lib/libassimp.a ] || run_cmd build_assimp $prefix/libs/assimp-3.1.1
 [ -f $prefix/target/lib/libeigen.a ] || run_cmd build_eigen $prefix/libs/eigen
 [ -f $prefix/target/lib/libqhullstatic.a ] || run_cmd build_qhull $prefix/libs/qhull-2012.1
-[ -f $prefix/target/share/octomap/octomap-config.cmake ] || run_cmd build_octomap $prefix/libs/octomap-1.6.8
+[ -f $prefix/target/lib/liboctomap.a ] || run_cmd build_octomap $prefix/libs/octomap-1.6.8
 [ -f $prefix/target/lib/libyamlcpp.a ] || run_cmd build_yaml_cpp $prefix/libs/yaml-cpp
 [ -f $prefix/target/lib/libopencv_core.a ] || run_cmd build_opencv $prefix/libs/opencv-2.4.9
+[ -f $prefix/target/lib/libflann.a ] || run_cmd build_flann $prefix/libs/flann
+[ -f $prefix/target/lib/libpcl_common.a ] || run_cmd build_pcl $prefix/libs/pcl
+
 
 echo
 echo -e '\e[34mCross-compiling ROS.\e[39m'
