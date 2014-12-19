@@ -139,6 +139,10 @@
     uri: https://github.com/ros-gbp/eigen_stl_containers-release/archive/release/indigo/eigen_stl_containers/0.1.4-0.tar.gz
     version: eigen_stl_containers-release-release-indigo-eigen_stl_containers-0.1.4-0
 - tar:
+    local-name: fcl
+    uri: https://github.com/ros-gbp/fcl-release/archive/release/indigo/fcl/0.3.2-0.tar.gz
+    version: fcl-release-release-indigo-fcl-0.3.2-0
+- tar:
     local-name: executive_smach/executive_smach
     uri: https://github.com/ros-gbp/executive_smach-release/archive/release/indigo/executive_smach/2.0.0-0.tar.gz
     version: executive_smach-release-release-indigo-executive_smach-2.0.0-0
@@ -219,6 +223,10 @@
     uri: https://github.com/ros-gbp/geometry_experimental-release/archive/release/indigo/tf2_ros/0.5.6-0.tar.gz
     version: geometry_experimental-release-release-indigo-tf2_ros-0.5.6-0
 - tar:
+    local-name: household_objects_database_msgs
+    uri: https://github.com/ros-gbp/household_objects_database_msgs-release/archive/release/indigo/household_objects_database_msgs/0.1.1-2.tar.gz
+    version: household_objects_database_msgs-release-release-indigo-household_objects_database_msgs-0.1.1-2
+- tar:
     local-name: image_common/camera_calibration_parsers
     uri: https://github.com/ros-gbp/image_common-release/archive/release/indigo/camera_calibration_parsers/1.11.4-0.tar.gz
     version: image_common-release-release-indigo-camera_calibration_parsers-1.11.4-0
@@ -283,6 +291,10 @@
 #    uri: https://github.com/ros-gbp/image_transport_plugins-release/archive/release/indigo/theora_image_transport/1.9.1-0.tar.gz
 #    version: image_transport_plugins-release-release-indigo-theora_image_transport-1.9.1-0
 - tar:
+    local-name: interactive_markers
+    uri: https://github.com/ros-gbp/interactive_markers-release/archive/release/indigo/interactive_markers/1.11.1-0.tar.gz
+    version: interactive_markers-release-release-indigo-interactive_markers-1.11.1-0
+- tar:
     local-name: laser_assembler
     uri: https://github.com/ros-gbp/laser_assembler-release/archive/release/indigo/laser_assembler/1.7.2-0.tar.gz
     version: laser_assembler-release-release-indigo-laser_assembler-1.7.2-0
@@ -295,13 +307,25 @@
     uri: https://github.com/ros-gbp/laser_geometry-release/archive/release/indigo/laser_geometry/1.6.2-0.tar.gz
     version: laser_geometry-release-release-indigo-laser_geometry-1.6.2-0
 - tar:
+    local-name: laser_pipeline
+    uri: https://github.com/ros-gbp/laser_pipeline-release/archive/release/indigo/laser_pipeline/1.6.1-0.tar.gz
+    version: laser_pipeline-release-release-indigo-laser_pipeline-1.6.1-0
+#- tar:
+#    local-name: libccd
+#    uri: https://github.com/ros-gbp/libccd-release/archive/release/indigo/libccd/1.5.0-1.tar.gz
+#    version: libccd-release-release-indigo-libccd-1.5.0-1
+- tar:
+    local-name: manipulation_msgs
+    uri: https://github.com/ros-gbp/manipulation_msgs-release/archive/release/indigo/manipulation_msgs/0.2.0-2.tar.gz
+    version: manipulation_msgs-release-release-indigo-manipulation_msgs-0.2.0-2
+- tar:
     local-name: map_msgs
     uri: https://github.com/ros-gbp/map_msgs-release/archive/release/indigo/map_msgs/0.0.2-1.tar.gz
     version: map_msgs-release-release-indigo-map_msgs-0.0.2-1
 - tar:
-    local-name: laser_pipeline
-    uri: https://github.com/ros-gbp/laser_pipeline-release/archive/release/indigo/laser_pipeline/1.6.1-0.tar.gz
-    version: laser_pipeline-release-release-indigo-laser_pipeline-1.6.1-0
+    local-name: media_export
+    uri: https://github.com/ros-gbp/media_export-release/archive/release/indigo/media_export/0.2.0-0.tar.gz
+    version: media_export-release-release-indigo-media_export-0.2.0-0
 - tar:
     local-name: message_generation
     uri: https://github.com/ros-gbp/message_generation-release/archive/release/indigo/message_generation/0.2.10-0.tar.gz
@@ -310,6 +334,58 @@
     local-name: message_runtime
     uri: https://github.com/ros-gbp/message_runtime-release/archive/release/indigo/message_runtime/0.4.12-0.tar.gz
     version: message_runtime-release-release-indigo-message_runtime-0.4.12-0
+- tar:
+    local-name: moveit_core
+    uri: https://github.com/ros-gbp/moveit_core-release/archive/release/indigo/moveit_core/0.6.12-0.tar.gz
+    version: moveit_core-release-release-indigo-moveit_core-0.6.12-0
+- tar:
+    local-name: moveit_msgs
+    uri: https://github.com/ros-gbp/moveit_msgs-release/archive/release/indigo/moveit_msgs/0.6.0-0.tar.gz
+    version: moveit_msgs-release-release-indigo-moveit_msgs-0.6.0-0
+- tar:
+    local-name: moveit_resources
+    uri: https://github.com/ros-gbp/moveit_resources-release/archive/release/indigo/moveit_resources/0.5.0-0.tar.gz
+    version: moveit_resources-release-release-indigo-moveit_resources-0.5.0-0
+#- tar:
+#    local-name: moveit_ros/moveit_ros
+#    uri: https://github.com/ros-gbp/moveit_ros-release/archive/release/indigo/moveit_ros/0.6.4-0.tar.gz
+#    version: moveit_ros-release-release-indigo-moveit_ros-0.6.4-0
+#- tar:
+#    local-name: moveit_ros/moveit_ros_benchmarks
+#    uri: https://github.com/ros-gbp/moveit_ros-release/archive/release/indigo/moveit_ros_benchmarks/0.6.4-0.tar.gz
+#    version: moveit_ros-release-release-indigo-moveit_ros_benchmarks-0.6.4-0
+#- tar:
+#    local-name: moveit_ros/moveit_ros_manipulation
+#    uri: https://github.com/ros-gbp/moveit_ros-release/archive/release/indigo/moveit_ros_manipulation/0.6.4-0.tar.gz
+#    version: moveit_ros-release-release-indigo-moveit_ros_manipulation-0.6.4-0
+#- tar:
+#    local-name: moveit_ros/moveit_ros_move_group
+#    uri: https://github.com/ros-gbp/moveit_ros-release/archive/release/indigo/moveit_ros_move_group/0.6.4-0.tar.gz
+#    version: moveit_ros-release-release-indigo-moveit_ros_move_group-0.6.4-0
+#- tar:
+#    local-name: moveit_ros/moveit_ros_perception
+#    uri: https://github.com/ros-gbp/moveit_ros-release/archive/release/indigo/moveit_ros_perception/0.6.4-0.tar.gz
+#    version: moveit_ros-release-release-indigo-moveit_ros_perception-0.6.4-0
+#- tar:
+#    local-name: moveit_ros/moveit_ros_planning
+#    uri: https://github.com/ros-gbp/moveit_ros-release/archive/release/indigo/moveit_ros_planning/0.6.4-0.tar.gz
+#    version: moveit_ros-release-release-indigo-moveit_ros_planning-0.6.4-0
+#- tar:
+#    local-name: moveit_ros/moveit_ros_planning_interface
+#    uri: https://github.com/ros-gbp/moveit_ros-release/archive/release/indigo/moveit_ros_planning_interface/0.6.4-0.tar.gz
+#    version: moveit_ros-release-release-indigo-moveit_ros_planning_interface-0.6.4-0
+#- tar:
+#    local-name: moveit_ros/moveit_ros_robot_interaction
+#    uri: https://github.com/ros-gbp/moveit_ros-release/archive/release/indigo/moveit_ros_robot_interaction/0.6.4-0.tar.gz
+#    version: moveit_ros-release-release-indigo-moveit_ros_robot_interaction-0.6.4-0
+#- tar:
+#    local-name: moveit_ros/moveit_ros_warehouse
+#    uri: https://github.com/ros-gbp/moveit_ros-release/archive/release/indigo/moveit_ros_warehouse/0.6.4-0.tar.gz
+#    version: moveit_ros-release-release-indigo-moveit_ros_warehouse-0.6.4-0
+- tar:
+    local-name: object_recognition_msgs
+    uri: https://github.com/ros-gbp/object_recognition_msgs-release/archive/release/indigo/object_recognition_msgs/0.4.1-0.tar.gz
+    version: object_recognition_msgs-release-release-indigo-object_recognition_msgs-0.4.1-0
 - tar:
     local-name: metapackages/perception
     uri: https://github.com/ros-gbp/metapackages-release/archive/release/indigo/perception/1.1.3-0.tar.gz
@@ -414,6 +490,10 @@
 #    local-name: octomap/octomap
 #    uri: https://github.com/ros-gbp/octomap-release/archive/release/indigo/octomap/1.6.8-0.tar.gz
 #    version: octomap-release-release-indigo-octomap-1.6.8-0
+- tar:
+    local-name: octomap_msgs
+    uri: https://github.com/ros-gbp/octomap_msgs-release/archive/release/indigo/octomap_msgs/0.3.2-0.tar.gz
+    version: octomap_msgs-release-release-indigo-octomap_msgs-0.3.2-0
 #- tar:
 #    local-name: orocos_kinematics_dynamics/orocos_kdl
 #    uri: https://github.com/smits/orocos-kdl-release/archive/release/indigo/orocos_kdl/1.3.0-0.tar.gz
@@ -442,6 +522,10 @@
     local-name: pluginlib
     uri: https://github.com/ros-gbp/pluginlib-release/archive/release/indigo/pluginlib/1.10.0-3.tar.gz
     version: pluginlib-release-release-indigo-pluginlib-1.10.0-3
+#- tar:
+#    local-name: python_qt_binding
+#    uri: https://github.com/ros-gbp/python_qt_binding-release/archive/release/indigo/python_qt_binding/0.2.14-0.tar.gz
+#    version: python_qt_binding-release-release-indigo-python_qt_binding-0.2.14-0
 - tar:
     local-name: random_numbers
     uri: https://github.com/ros-gbp/random_numbers-release/archive/release/indigo/random_numbers/0.3.0-0.tar.gz
@@ -679,6 +763,10 @@
     uri: https://github.com/ros-gbp/shape_tools-release/archive/release/indigo/shape_tools/0.2.1-0.tar.gz
     version: shape_tools-release-release-indigo-shape_tools-0.2.1-0
 - tar:
+    local-name: srdfdom
+    uri: https://github.com/ros-gbp/srdfdom-release/archive/release/indigo/srdfdom/0.2.7-0.tar.gz
+    version: srdfdom-release-release-indigo-srdfdom-0.2.7-0
+- tar:
     local-name: std_msgs
     uri: https://github.com/ros-gbp/std_msgs-release/archive/release/indigo/std_msgs/0.5.9-1.tar.gz
     version: std_msgs-release-release-indigo-std_msgs-0.5.9-1
@@ -694,6 +782,10 @@
     local-name: vision_opencv/vision_opencv
     uri: https://github.com/ros-gbp/vision_opencv-release/archive/release/indigo/vision_opencv/1.11.6-0.tar.gz
     version: vision_opencv-release-release-indigo-vision_opencv-1.11.6-0
+#- tar:
+#    local-name: warehouse_ros
+#    uri: https://github.com/ros-gbp/warehouse_ros-release/archive/release/indigo/warehouse_ros/0.8.8-0.tar.gz
+#    version: warehouse_ros-release-release-indigo-warehouse_ros-0.8.8-0
 - tar:
     local-name: xacro
     uri: https://github.com/ros-gbp/xacro-release/archive/release/indigo/xacro/1.9.2-0.tar.gz

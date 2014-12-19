@@ -111,6 +111,7 @@ export RBA_TOOLCHAIN=$prefix/android.toolchain.cmake
 [ -d $prefix/libs/bfl-0.7.0 ] || run_cmd get_library bfl $prefix/libs
 [ -d $prefix/libs/orocos_kdl-1.3.0 ] || run_cmd get_library orocos_kdl $prefix/libs
 [ -d $prefix/libs/apache-log4cxx-0.10.0 ] || run_cmd get_library log4cxx $prefix/libs
+[ -d $prefix/libs/libccd-2.0 ] || run_cmd get_library libccd $prefix/libs
 
 [ -f $prefix/target/bin/catkin_make ] || run_cmd build_library catkin $prefix/libs/catkin
 . $prefix/target/setup.bash
@@ -281,6 +282,7 @@ echo
 [ -f $prefix/target/lib/liborocos-bfl.a ] || run_cmd build_library bfl $prefix/libs/bfl-0.7.0
 [ -f $prefix/target/lib/liborocos-kdl.a ] || run_cmd build_library orocos_kdl $prefix/libs/orocos_kdl-1.3.0
 [ -f $prefix/target/lib/liblog4cxx.a ] || run_cmd build_library_with_toolchain log4cxx $prefix/libs/apache-log4cxx-0.10.0
+[ -f $prefix/target/lib/libccd.a ] || run_cmd build_library libccd $prefix/libs/libccd-2.0
 
 
 echo

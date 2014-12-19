@@ -46,6 +46,9 @@ elif [ $1 == 'eigen' ]; then
 elif [ $1 == 'flann' ]; then
     URL=https://github.com/chadrockey/flann_cmake.git
     COMP='git'
+elif [ $1 == 'libccd' ]; then
+    URL=https://github.com/danfis/libccd/archive/v2.0.tar.gz
+    COMP='gz'
 elif [ $1 == 'libiconv' ]; then
     URL=http://ftp.gnu.org/pub/gnu/libiconv/libiconv-1.14.tar.gz
     COMP='gz'
