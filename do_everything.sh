@@ -217,6 +217,10 @@ if [[ $skip -ne 1 ]] ; then
     # TODO: https://github.com/ros-perception/image_pipeline/pull/113 merged, need to wait until new version (current 1.12.11)
     patch -p0 -N -d $prefix < /opt/roscpp_android/patches/image_view.patch
 
+    # Patch voxel_grid - Add ARCHIVE DESTINATION
+    # TODO: create PR
+    patch -p0 -N -d $prefix < /opt/roscpp_android/patches/voxel_grid.patch
+
 fi
 
 echo

@@ -6,6 +6,11 @@
     local-name: angles
     uri: https://github.com/ros-gbp/geometry_angles_utils-release/archive/release/indigo/angles/1.9.9-0.tar.gz
     version: geometry_angles_utils-release-release-indigo-angles-1.9.9-0
+# plain Cmake
+#- tar:
+#    local-name: bfl
+#    uri: https://github.com/ros-gbp/bfl-release/archive/release/indigo/bfl/0.7.0-6.tar.gz
+#    version: bfl-release-release-indigo-bfl-0.7.0-6
 - tar:
     local-name: bond_core/bond
     uri: https://github.com/ros-gbp/bond_core-release/archive/release/indigo/bond/1.7.16-0.tar.gz
@@ -298,6 +303,10 @@
     uri: https://github.com/ros-gbp/laser_geometry-release/archive/release/indigo/laser_geometry/1.6.2-0.tar.gz
     version: laser_geometry-release-release-indigo-laser_geometry-1.6.2-0
 - tar:
+    local-name: map_msgs
+    uri: https://github.com/ros-gbp/map_msgs-release/archive/release/indigo/map_msgs/0.0.2-1.tar.gz
+    version: map_msgs-release-release-indigo-map_msgs-0.0.2-1
+- tar:
     local-name: laser_pipeline
     uri: https://github.com/ros-gbp/laser_pipeline-release/archive/release/indigo/laser_pipeline/1.6.1-0.tar.gz
     version: laser_pipeline-release-release-indigo-laser_pipeline-1.6.1-0
@@ -325,6 +334,78 @@
     local-name: metapackages/ros_core
     uri: https://github.com/ros-gbp/metapackages-release/archive/release/indigo/ros_core/1.1.3-0.tar.gz
     version: metapackages-release-release-indigo-ros_core-1.1.3-0
+- tar:
+    local-name: navigation/amcl
+    uri: https://github.com/ros-gbp/navigation-release/archive/release/indigo/amcl/1.11.14-0.tar.gz
+    version: navigation-release-release-indigo-amcl-1.11.14-0
+- tar:
+    local-name: navigation/base_local_planner
+    uri: https://github.com/ros-gbp/navigation-release/archive/release/indigo/base_local_planner/1.11.14-0.tar.gz
+    version: navigation-release-release-indigo-base_local_planner-1.11.14-0
+- tar:
+    local-name: navigation/carrot_planner
+    uri: https://github.com/ros-gbp/navigation-release/archive/release/indigo/carrot_planner/1.11.14-0.tar.gz
+    version: navigation-release-release-indigo-carrot_planner-1.11.14-0
+- tar:
+    local-name: navigation/clear_costmap_recovery
+    uri: https://github.com/ros-gbp/navigation-release/archive/release/indigo/clear_costmap_recovery/1.11.14-0.tar.gz
+    version: navigation-release-release-indigo-clear_costmap_recovery-1.11.14-0
+- tar:
+    local-name: navigation/costmap_2d
+    uri: https://github.com/ros-gbp/navigation-release/archive/release/indigo/costmap_2d/1.11.14-0.tar.gz
+    version: navigation-release-release-indigo-costmap_2d-1.11.14-0
+- tar:
+    local-name: navigation/dwa_local_planner
+    uri: https://github.com/ros-gbp/navigation-release/archive/release/indigo/dwa_local_planner/1.11.14-0.tar.gz
+    version: navigation-release-release-indigo-dwa_local_planner-1.11.14-0
+- tar:
+    local-name: navigation/fake_localization
+    uri: https://github.com/ros-gbp/navigation-release/archive/release/indigo/fake_localization/1.11.14-0.tar.gz
+    version: navigation-release-release-indigo-fake_localization-1.11.14-0
+- tar:
+    local-name: navigation/global_planner
+    uri: https://github.com/ros-gbp/navigation-release/archive/release/indigo/global_planner/1.11.14-0.tar.gz
+    version: navigation-release-release-indigo-global_planner-1.11.14-0
+- tar:
+    local-name: navigation/map_server
+    uri: https://github.com/ros-gbp/navigation-release/archive/release/indigo/map_server/1.11.14-0.tar.gz
+    version: navigation-release-release-indigo-map_server-1.11.14-0
+- tar:
+    local-name: navigation/move_base
+    uri: https://github.com/ros-gbp/navigation-release/archive/release/indigo/move_base/1.11.14-0.tar.gz
+    version: navigation-release-release-indigo-move_base-1.11.14-0
+- tar:
+    local-name: navigation/move_base_msgs
+    uri: https://github.com/ros-gbp/navigation-release/archive/release/indigo/move_base_msgs/1.11.14-0.tar.gz
+    version: navigation-release-release-indigo-move_base_msgs-1.11.14-0
+- tar:
+    local-name: navigation/move_slow_and_clear
+    uri: https://github.com/ros-gbp/navigation-release/archive/release/indigo/move_slow_and_clear/1.11.14-0.tar.gz
+    version: navigation-release-release-indigo-move_slow_and_clear-1.11.14-0
+- tar:
+    local-name: navigation/nav_core
+    uri: https://github.com/ros-gbp/navigation-release/archive/release/indigo/nav_core/1.11.14-0.tar.gz
+    version: navigation-release-release-indigo-nav_core-1.11.14-0
+- tar:
+    local-name: navigation/navfn
+    uri: https://github.com/ros-gbp/navigation-release/archive/release/indigo/navfn/1.11.14-0.tar.gz
+    version: navigation-release-release-indigo-navfn-1.11.14-0
+- tar:
+    local-name: navigation/navigation
+    uri: https://github.com/ros-gbp/navigation-release/archive/release/indigo/navigation/1.11.14-0.tar.gz
+    version: navigation-release-release-indigo-navigation-1.11.14-0
+#- tar:
+#    local-name: navigation/robot_pose_ekf
+#    uri: https://github.com/ros-gbp/navigation-release/archive/release/indigo/robot_pose_ekf/1.11.14-0.tar.gz
+#    version: navigation-release-release-indigo-robot_pose_ekf-1.11.14-0
+- tar:
+    local-name: navigation/rotate_recovery
+    uri: https://github.com/ros-gbp/navigation-release/archive/release/indigo/rotate_recovery/1.11.14-0.tar.gz
+    version: navigation-release-release-indigo-rotate_recovery-1.11.14-0
+- tar:
+    local-name: navigation/voxel_grid
+    uri: https://github.com/ros-gbp/navigation-release/archive/release/indigo/voxel_grid/1.11.14-0.tar.gz
+    version: navigation-release-release-indigo-voxel_grid-1.11.14-0
 - tar:
     local-name: nodelet_core/nodelet
     uri: https://github.com/ros-gbp/nodelet_core-release/archive/release/indigo/nodelet/1.9.2-0.tar.gz
