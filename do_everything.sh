@@ -86,28 +86,28 @@ export CMAKE_PREFIX_PATH=$prefix/target
 export RBA_TOOLCHAIN=$prefix/android.toolchain.cmake
 
 # Now get boost with a specialized build
-[ -d $prefix/libs/boost ] || run_cmd get_boost $prefix/libs
-[ -d $prefix/libs/bzip2 ] || run_cmd get_bzip2 $prefix/libs
-[ -d $prefix/libs/uuid ] || run_cmd get_uuid $prefix/libs
-[ -d $prefix/libs/poco-1.4.6p2 ] || run_cmd get_poco $prefix/libs
-[ -d $prefix/libs/tinyxml ] || run_cmd get_tinyxml $prefix/libs
-[ -d $prefix/libs/catkin ] || run_cmd get_catkin $prefix/libs
-[ -d $prefix/libs/console_bridge ] || run_cmd get_console_bridge $prefix/libs
-[ -d $prefix/libs/lz4-r124 ] || run_cmd get_lz4 $prefix/libs
-[ -d $prefix/libs/curl-7.39.0 ] || run_cmd get_curl $prefix/libs
-[ -d $prefix/libs/urdfdom/ ] || run_cmd get_urdfdom $prefix/libs
-[ -d $prefix/libs/urdfdom_headers ] || run_cmd get_urdfdom_headers $prefix/libs
-[ -d $prefix/libs/libiconv-1.14 ] || run_cmd get_libiconv $prefix/libs
-[ -d $prefix/libs/libxml2-2.9.1 ] || run_cmd get_libxml2 $prefix/libs
-[ -d $prefix/libs/collada-dom-2.4.0 ] || run_cmd get_collada_dom $prefix/libs
-[ -d $prefix/libs/eigen ] || run_cmd get_eigen $prefix/libs
-[ -d $prefix/libs/assimp-3.1.1 ] || run_cmd get_assimp $prefix/libs
-[ -d $prefix/libs/qhull-2012.1 ] || run_cmd get_qhull $prefix/libs
-[ -d $prefix/libs/octomap-1.6.8 ] || run_cmd get_octomap $prefix/libs
-[ -d $prefix/libs/yaml-cpp ] || run_cmd get_yaml_cpp $prefix/libs
-[ -d $prefix/libs/opencv-2.4.9 ] || run_cmd get_opencv $prefix/libs
-[ -d $prefix/libs/flann ] || run_cmd get_flann $prefix/libs
-[ -d $prefix/libs/pcl ] || run_cmd get_pcl $prefix/libs
+[ -d $prefix/libs/boost ] || run_cmd get_library boost $prefix/libs
+[ -d $prefix/libs/bzip2 ] || run_cmd get_library bzip2 $prefix/libs
+[ -d $prefix/libs/uuid ] || run_cmd get_library uuid $prefix/libs
+[ -d $prefix/libs/poco-1.4.6p2 ] || run_cmd get_library poco $prefix/libs
+[ -d $prefix/libs/tinyxml ] || run_cmd get_library tinyxml $prefix/libs
+[ -d $prefix/libs/catkin ] || run_cmd get_library catkin $prefix/libs
+[ -d $prefix/libs/console_bridge ] || run_cmd get_library console_bridge $prefix/libs
+[ -d $prefix/libs/lz4-r124 ] || run_cmd get_library lz4 $prefix/libs
+[ -d $prefix/libs/curl-7.39.0 ] || run_cmd get_library curl $prefix/libs
+[ -d $prefix/libs/urdfdom/ ] || run_cmd get_library urdfdom $prefix/libs
+[ -d $prefix/libs/urdfdom_headers ] || run_cmd get_library urdfdom_headers $prefix/libs
+[ -d $prefix/libs/libiconv-1.14 ] || run_cmd get_library libiconv $prefix/libs
+[ -d $prefix/libs/libxml2-2.9.1 ] || run_cmd get_library libxml2 $prefix/libs
+[ -d $prefix/libs/collada-dom-2.4.0 ] || run_cmd get_library collada_dom $prefix/libs
+[ -d $prefix/libs/eigen ] || run_cmd get_library eigen $prefix/libs
+[ -d $prefix/libs/assimp-3.1.1 ] || run_cmd get_library assimp $prefix/libs
+[ -d $prefix/libs/qhull-2012.1 ] || run_cmd get_library qhull $prefix/libs
+[ -d $prefix/libs/octomap-1.6.8 ] || run_cmd get_library octomap $prefix/libs
+[ -d $prefix/libs/yaml_cpp ] || run_cmd get_library yaml_cpp $prefix/libs
+[ -d $prefix/libs/opencv-2.4.9 ] || run_cmd get_library opencv $prefix/libs
+[ -d $prefix/libs/flann ] || run_cmd get_library flann $prefix/libs
+[ -d $prefix/libs/pcl ] || run_cmd get_library pcl $prefix/libs
 
 [ -f $prefix/target/bin/catkin_make ] || run_cmd build_library catkin $prefix/libs/catkin
 . $prefix/target/setup.bash
@@ -240,7 +240,7 @@ echo
 [ -f $prefix/target/lib/libeigen.a ] || run_cmd build_eigen $prefix/libs/eigen
 [ -f $prefix/target/lib/libqhullstatic.a ] || run_cmd build_library qhull $prefix/libs/qhull-2012.1
 [ -f $prefix/target/lib/liboctomap.a ] || run_cmd build_library octomap $prefix/libs/octomap-1.6.8
-[ -f $prefix/target/lib/libyaml-cpp.a ] || run_cmd build_library yaml_cpp $prefix/libs/yaml-cpp
+[ -f $prefix/target/lib/libyaml-cpp.a ] || run_cmd build_library yaml_cpp $prefix/libs/yaml_cpp
 [ -f $prefix/target/lib/libopencv_core.a ] || run_cmd build_library opencv $prefix/libs/opencv-2.4.9
 [ -f $prefix/target/lib/libflann_cpp_s.a ] || run_cmd build_library flann $prefix/libs/flann
 [ -f $prefix/target/lib/libpcl_common.a ] || run_cmd build_library pcl $prefix/libs/pcl
