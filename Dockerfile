@@ -28,3 +28,9 @@ RUN (while true; do echo 'y'; sleep 2; done) | android update sdk -u -t 2,3,7,8,
 
 ENV JAVA_HOME /usr/lib/jvm/java-6-openjdk-amd64/
 
+# Use ccache
+RUN apt-get update && apt-get install -y ccache
+ENV USE_CCACHE 1
+ENV NDK_CCACHE /usr/bin/ccache
+ENV CCACHE_DIR /opt/roscpp_output/ccache
+ENV PATH /usr/lib/ccache:$PATH

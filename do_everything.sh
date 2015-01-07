@@ -141,6 +141,13 @@ if [[ $skip -ne 1 ]] ; then
     # Patch opencv - Fix installation path
     patch -p0 -N -d $prefix < /opt/roscpp_android/patches/opencv.patch
 
+    # Patch qhull - Don't install shared libraries
+    # TODO: Remove shared libraries to avoid hack in parse_libs.py
+    #patch -p0 -N -d $prefix < /opt/roscpp_android/patches/qhull.patch
+
+    # Patch eigen - Rename param as some constant already has the same name
+    # TODO: Fork and push changes to creativa's repo
+    patch -p0 -N -d $prefix < /opt/roscpp_android/patches/eigen.patch
 
     ## ROS patches
 
@@ -216,6 +223,11 @@ if [[ $skip -ne 1 ]] ; then
     # Patch image_view - Fix duplicated symbol
     # TODO: https://github.com/ros-perception/image_pipeline/pull/113 merged, need to wait until new version (current 1.12.11)
     patch -p0 -N -d $prefix < /opt/roscpp_android/patches/image_view.patch
+
+    # Patch navigation - Add ARCHIVE DESTINATION and mark headers for installation for move_base
+    # TODO: https://github.com/ros-planning/navigation/pull/296 merged, need to wait until new version (current 1.11.4)
+    # TODO: https://github.com/ros-planning/navigation/pull/297 merged, need to wait until new version (current 1.11.4)
+    patch -p0 -N -d $prefix < /opt/roscpp_android/patches/navigation.patch
 
 fi
 
