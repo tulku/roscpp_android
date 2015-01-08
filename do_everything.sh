@@ -108,6 +108,7 @@ export RBA_TOOLCHAIN=$prefix/android.toolchain.cmake
 [ -d $prefix/libs/opencv-2.4.9 ] || run_cmd get_library opencv $prefix/libs
 [ -d $prefix/libs/flann ] || run_cmd get_library flann $prefix/libs
 [ -d $prefix/libs/pcl ] || run_cmd get_library pcl $prefix/libs
+[ -d $prefix/libs/bfl-0.7.0 ] || run_cmd get_library bfl $prefix/libs
 
 [ -f $prefix/target/bin/catkin_make ] || run_cmd build_library catkin $prefix/libs/catkin
 . $prefix/target/setup.bash
@@ -148,6 +149,9 @@ if [[ $skip -ne 1 ]] ; then
     # Patch eigen - Rename param as some constant already has the same name
     # TODO: Fork and push changes to creativa's repo
     patch -p0 -N -d $prefix < /opt/roscpp_android/patches/eigen.patch
+
+    # Patch bfl - Build as static lib
+    patch -p0 -N -d $prefix < /opt/roscpp_android/patches/bfl.patch
 
     ## ROS patches
 
@@ -256,6 +260,7 @@ echo
 [ -f $prefix/target/lib/libopencv_core.a ] || run_cmd build_library opencv $prefix/libs/opencv-2.4.9
 [ -f $prefix/target/lib/libflann_cpp_s.a ] || run_cmd build_library flann $prefix/libs/flann
 [ -f $prefix/target/lib/libpcl_common.a ] || run_cmd build_library pcl $prefix/libs/pcl
+[ -f $prefix/target/lib/liborocos-bfl.a ] || run_cmd build_library bfl $prefix/libs/bfl-0.7.0
 
 
 echo

@@ -19,6 +19,9 @@ prefix=$(cd $2 && pwd)
 if [ $1 == 'assimp' ]; then
     URL=https://github.com/assimp/assimp/archive/v3.1.1.tar.gz
     COMP='gz'
+elif [ $1 == 'bfl' ]; then
+    URL=https://github.com/ros-gbp/bfl-release/archive/release/indigo/bfl/0.7.0-6.tar.gz
+    COMP='gz'
 elif [ $1 == 'boost' ]; then
     URL=https://github.com/algron/Boost-for-Android.git
     COMP='git'
@@ -99,4 +102,6 @@ if [ $1 == 'boost' ]; then
 elif [ $1 == 'urdfdom' ]; then
     cd $prefix/urdfdom
     git checkout $HASH
+elif [ $1 == 'bfl' ]; then
+    mv $prefix/bfl-release-release-indigo-bfl-0.7.0-6 $prefix/bfl-0.7.0
 fi

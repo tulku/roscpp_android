@@ -386,10 +386,10 @@
     local-name: navigation/navigation
     uri: https://github.com/ros-gbp/navigation-release/archive/release/indigo/navigation/1.11.14-0.tar.gz
     version: navigation-release-release-indigo-navigation-1.11.14-0
-#- tar:
-#    local-name: navigation/robot_pose_ekf
-#    uri: https://github.com/ros-gbp/navigation-release/archive/release/indigo/robot_pose_ekf/1.11.14-0.tar.gz
-#    version: navigation-release-release-indigo-robot_pose_ekf-1.11.14-0
+- tar:
+    local-name: navigation/robot_pose_ekf
+    uri: https://github.com/ros-gbp/navigation-release/archive/release/indigo/robot_pose_ekf/1.11.14-0.tar.gz
+    version: navigation-release-release-indigo-robot_pose_ekf-1.11.14-0
 - tar:
     local-name: navigation/rotate_recovery
     uri: https://github.com/ros-gbp/navigation-release/archive/release/indigo/rotate_recovery/1.11.14-0.tar.gz
