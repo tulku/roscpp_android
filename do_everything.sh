@@ -237,6 +237,10 @@ if [[ $skip -ne 1 ]] ; then
     # TODO: https://github.com/ros-planning/navigation/pull/297 merged, need to wait until new version (current 1.11.4)
     patch -p0 -N -d $prefix < /opt/roscpp_android/patches/navigation.patch
 
+    # Patch robot_pose_ekf - Add bfl library cmake variables, also, remove tests
+    # TODO: The correct way to handle this would be to create .cmake files for bfl and do a findpackage(orocos-bfl)
+    patch -p0 -N -d $prefix < /opt/roscpp_android/patches/robot_pose_ekf.patch
+
 fi
 
 echo
