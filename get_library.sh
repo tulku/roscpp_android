@@ -61,6 +61,9 @@ elif [ $1 == 'octomap' ]; then
 elif [ $1 == 'opencv' ]; then
     URL=https://github.com/Itseez/opencv/archive/2.4.9.tar.gz
     COMP='gz'
+elif [ $1 == 'orocos_kdl' ]; then
+    URL=https://github.com/smits/orocos-kdl-release/archive/release/indigo/orocos_kdl/1.3.0-0.tar.gz
+    COMP='gz'
 elif [ $1 == 'pcl' ]; then
     URL=https://github.com/chadrockey/pcl.git
     COMP='git'
@@ -104,4 +107,6 @@ elif [ $1 == 'urdfdom' ]; then
     git checkout $HASH
 elif [ $1 == 'bfl' ]; then
     mv $prefix/bfl-release-release-indigo-bfl-0.7.0-6 $prefix/bfl-0.7.0
+elif [ $1 == 'orocos_kdl' ]; then
+    mv $prefix/orocos-kdl-release-release-indigo-orocos_kdl-1.3.0-0 $prefix/orocos_kdl-1.3.0
 fi

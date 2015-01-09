@@ -109,6 +109,7 @@ export RBA_TOOLCHAIN=$prefix/android.toolchain.cmake
 [ -d $prefix/libs/flann ] || run_cmd get_library flann $prefix/libs
 [ -d $prefix/libs/pcl ] || run_cmd get_library pcl $prefix/libs
 [ -d $prefix/libs/bfl-0.7.0 ] || run_cmd get_library bfl $prefix/libs
+[ -d $prefix/libs/orocos_kdl-1.3.0 ] || run_cmd get_library orocos_kdl $prefix/libs
 
 [ -f $prefix/target/bin/catkin_make ] || run_cmd build_library catkin $prefix/libs/catkin
 . $prefix/target/setup.bash
@@ -152,6 +153,9 @@ if [[ $skip -ne 1 ]] ; then
 
     # Patch bfl - Build as static lib
     patch -p0 -N -d $prefix < /opt/roscpp_android/patches/bfl.patch
+
+    # Patch orocos_kdl - Build as static lib and change constant name
+    patch -p0 -N -d $prefix < /opt/roscpp_android/patches/orocos_kdl.patch
 
     ## ROS patches
 
@@ -261,6 +265,7 @@ echo
 [ -f $prefix/target/lib/libflann_cpp_s.a ] || run_cmd build_library flann $prefix/libs/flann
 [ -f $prefix/target/lib/libpcl_common.a ] || run_cmd build_library pcl $prefix/libs/pcl
 [ -f $prefix/target/lib/liborocos-bfl.a ] || run_cmd build_library bfl $prefix/libs/bfl-0.7.0
+[ -f $prefix/target/lib/liborocos-kdl.a ] || run_cmd build_library orocos_kdl $prefix/libs/orocos_kdl-1.3.0
 
 
 echo
