@@ -12,18 +12,34 @@ fi
 # Requires docker 1.3+
 cmd_exists docker || die 'docker was not found'
 
-echo
-echo -e '\e[34mBuilding docker image.\e[39m'
-echo
+IMAGE=$(sudo docker images | grep "rosndk " |  awk '{print $3}')
+if [[ -z $IMAGE ]]; then
+    echo -e '\e[34mCreting docker image.\e[39m'
+    sudo docker build -t rosndk .
+    # TODO: Verify successful docker image build
+fi
 
-# Build docker image
-sudo docker build -t rosndk .
-# TODO: Verify successful docker image build
+if [ "x${1}" == "x--delete-image" ]
+then
+  echo
+  echo -e '\e[34mDeleting docker image.\e[39m'
+  echo
+  sudo docker rmi -f rosndk
 
-echo
-echo -e '\e[34mRunning megabuild.\e[39m'
-echo
-echo -e '\e[34mSetting output_path to: '$output_path'.\e[39m'
-echo
+elif [ "x${1}" == "x--delete-tmp" ]
+then
+  echo
+  echo -e '\e[34mDeleting docker temporary directory.\e[39m'
+  echo
+  sudo rm -rf /var/lib/docker/tmp
 
-sudo docker run -t -v $my_loc:/opt/roscpp_android -v $output_path:/opt/roscpp_output -i rosndk /opt/roscpp_android/do_everything.sh /opt/roscpp_output
+else
+  echo
+  echo -e '\e[34mRunning megabuild.\e[39m'
+  echo
+  echo -e '\e[34mSetting output_path to: '$output_path'.\e[39m'
+  echo
+
+  sudo docker run -t -v $my_loc:/opt/roscpp_android -v $output_path:/opt/roscpp_output -i rosndk /opt/roscpp_android/do_everything.sh /opt/roscpp_output
+
+fi
