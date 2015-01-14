@@ -19,6 +19,9 @@ prefix=$(cd $2 && pwd)
 if [ $1 == 'assimp' ]; then
     URL=https://github.com/assimp/assimp/archive/v3.1.1.tar.gz
     COMP='gz'
+elif [ $1 == 'bfl' ]; then
+    URL=https://github.com/ros-gbp/bfl-release/archive/release/indigo/bfl/0.7.0-6.tar.gz
+    COMP='gz'
 elif [ $1 == 'boost' ]; then
     URL=https://github.com/algron/Boost-for-Android.git
     COMP='git'
@@ -46,6 +49,9 @@ elif [ $1 == 'flann' ]; then
 elif [ $1 == 'libiconv' ]; then
     URL=http://ftp.gnu.org/pub/gnu/libiconv/libiconv-1.14.tar.gz
     COMP='gz'
+elif [ $1 == 'log4cxx' ]; then
+    URL=http://mirrors.sonic.net/apache/logging/log4cxx/0.10.0/apache-log4cxx-0.10.0.tar.gz
+    COMP='gz'
 elif [ $1 == 'libxml2' ]; then
     URL=ftp://xmlsoft.org/libxml2/libxml2-2.9.1.tar.gz
     COMP='gz'
@@ -57,6 +63,9 @@ elif [ $1 == 'octomap' ]; then
     COMP='gz'
 elif [ $1 == 'opencv' ]; then
     URL=https://github.com/Itseez/opencv/archive/2.4.9.tar.gz
+    COMP='gz'
+elif [ $1 == 'orocos_kdl' ]; then
+    URL=https://github.com/smits/orocos-kdl-release/archive/release/indigo/orocos_kdl/1.3.0-0.tar.gz
     COMP='gz'
 elif [ $1 == 'pcl' ]; then
     URL=https://github.com/chadrockey/pcl.git
@@ -99,4 +108,8 @@ if [ $1 == 'boost' ]; then
 elif [ $1 == 'urdfdom' ]; then
     cd $prefix/urdfdom
     git checkout $HASH
+elif [ $1 == 'bfl' ]; then
+    mv $prefix/bfl-release-release-indigo-bfl-0.7.0-6 $prefix/bfl-0.7.0
+elif [ $1 == 'orocos_kdl' ]; then
+    mv $prefix/orocos-kdl-release-release-indigo-orocos_kdl-1.3.0-0 $prefix/orocos_kdl-1.3.0
 fi

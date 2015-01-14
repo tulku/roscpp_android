@@ -108,6 +108,9 @@ export RBA_TOOLCHAIN=$prefix/android.toolchain.cmake
 [ -d $prefix/libs/opencv-2.4.9 ] || run_cmd get_library opencv $prefix/libs
 [ -d $prefix/libs/flann ] || run_cmd get_library flann $prefix/libs
 [ -d $prefix/libs/pcl ] || run_cmd get_library pcl $prefix/libs
+[ -d $prefix/libs/bfl-0.7.0 ] || run_cmd get_library bfl $prefix/libs
+[ -d $prefix/libs/orocos_kdl-1.3.0 ] || run_cmd get_library orocos_kdl $prefix/libs
+[ -d $prefix/libs/apache-log4cxx-0.10.0 ] || run_cmd get_library log4cxx $prefix/libs
 
 [ -f $prefix/target/bin/catkin_make ] || run_cmd build_library catkin $prefix/libs/catkin
 . $prefix/target/setup.bash
@@ -148,6 +151,16 @@ if [[ $skip -ne 1 ]] ; then
     # Patch eigen - Rename param as some constant already has the same name
     # TODO: Fork and push changes to creativa's repo
     patch -p0 -N -d $prefix < /opt/roscpp_android/patches/eigen.patch
+
+    # Patch bfl - Build as static lib
+    patch -p0 -N -d $prefix < /opt/roscpp_android/patches/bfl.patch
+
+    # Patch orocos_kdl - Build as static lib and change constant name
+    patch -p0 -N -d $prefix < /opt/roscpp_android/patches/orocos_kdl.patch
+
+    # Patch log4cxx - Add missing headers
+    patch -p0 -N -d $prefix < /opt/roscpp_android/patches/log4cxx.patch
+
 
     ## ROS patches
 
@@ -229,6 +242,15 @@ if [[ $skip -ne 1 ]] ; then
     # TODO: https://github.com/ros-planning/navigation/pull/297 merged, need to wait until new version (current 1.11.4)
     patch -p0 -N -d $prefix < /opt/roscpp_android/patches/navigation.patch
 
+    # Patch robot_pose_ekf - Add bfl library cmake variables, also, remove tests
+    # TODO: The correct way to handle this would be to create .cmake files for bfl and do a findpackage(orocos-bfl)
+    patch -p0 -N -d $prefix < /opt/roscpp_android/patches/robot_pose_ekf.patch
+
+    # Patch robot_state_publisher - Add log4cxx library cmake variables, also, add ARCHIVE DESTINATION
+    # TODO: The correct way to handle this would be to create .cmake files for bfl and do a findpackage(log4cxx)
+    # TODO: Create PR to add ARCHIVE DESTINATION
+    patch -p0 -N -d $prefix < /opt/roscpp_android/patches/robot_state_publisher.patch
+
 fi
 
 echo
@@ -256,6 +278,9 @@ echo
 [ -f $prefix/target/lib/libopencv_core.a ] || run_cmd build_library opencv $prefix/libs/opencv-2.4.9
 [ -f $prefix/target/lib/libflann_cpp_s.a ] || run_cmd build_library flann $prefix/libs/flann
 [ -f $prefix/target/lib/libpcl_common.a ] || run_cmd build_library pcl $prefix/libs/pcl
+[ -f $prefix/target/lib/liborocos-bfl.a ] || run_cmd build_library bfl $prefix/libs/bfl-0.7.0
+[ -f $prefix/target/lib/liborocos-kdl.a ] || run_cmd build_library orocos_kdl $prefix/libs/orocos_kdl-1.3.0
+[ -f $prefix/target/lib/liblog4cxx.a ] || run_cmd build_library_with_toolchain log4cxx $prefix/libs/apache-log4cxx-0.10.0
 
 
 echo
