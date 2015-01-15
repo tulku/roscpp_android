@@ -111,6 +111,8 @@ export RBA_TOOLCHAIN=$prefix/android.toolchain.cmake
 [ -d $prefix/libs/bfl-0.7.0 ] || run_cmd get_library bfl $prefix/libs
 [ -d $prefix/libs/orocos_kdl-1.3.0 ] || run_cmd get_library orocos_kdl $prefix/libs
 [ -d $prefix/libs/apache-log4cxx-0.10.0 ] || run_cmd get_library log4cxx $prefix/libs
+[ -d $prefix/libs/libccd-2.0 ] || run_cmd get_library libccd $prefix/libs
+[ -d $prefix/libs/fcl-0.3.2 ] || run_cmd get_library fcl $prefix/libs
 
 [ -f $prefix/target/bin/catkin_make ] || run_cmd build_library catkin $prefix/libs/catkin
 . $prefix/target/setup.bash
@@ -160,6 +162,12 @@ if [[ $skip -ne 1 ]] ; then
 
     # Patch log4cxx - Add missing headers
     patch -p0 -N -d $prefix < /opt/roscpp_android/patches/log4cxx.patch
+
+    # Patch fcl - Add ccd library cmake variables
+    # TODO: The correct way to handle this would be to create .cmake files for ccd and do a findpackage(ccd)
+    # Also, this can go inside the catkin_ws but the headers don't get installed on the catkin_make and are
+    # needed by moveit_core during compilation
+    patch -p0 -N -d $prefix < /opt/roscpp_android/patches/fcl.patch
 
 
     ## ROS patches
@@ -247,9 +255,17 @@ if [[ $skip -ne 1 ]] ; then
     patch -p0 -N -d $prefix < /opt/roscpp_android/patches/robot_pose_ekf.patch
 
     # Patch robot_state_publisher - Add log4cxx library cmake variables, also, add ARCHIVE DESTINATION
-    # TODO: The correct way to handle this would be to create .cmake files for bfl and do a findpackage(log4cxx)
+    # TODO: The correct way to handle this would be to create .cmake files for log4cxx and do a findpackage(log4cxx)
     # TODO: Create PR to add ARCHIVE DESTINATION
     patch -p0 -N -d $prefix < /opt/roscpp_android/patches/robot_state_publisher.patch
+
+    # Patch moveit_core plugins - Add ARCHIVE DESTINATION
+    # TODO: Create PR
+    patch -p0 -N -d $prefix < /opt/roscpp_android/patches/moveit_core_plugins.patch
+
+    # Patch moveit_core - Add fcl library cmake variables
+    # TODO: The correct way to handle this would be to create .cmake files for fcl and do a findpackage(fcl)
+    patch -p0 -N -d $prefix < /opt/roscpp_android/patches/moveit_core.patch
 
 fi
 
@@ -281,6 +297,8 @@ echo
 [ -f $prefix/target/lib/liborocos-bfl.a ] || run_cmd build_library bfl $prefix/libs/bfl-0.7.0
 [ -f $prefix/target/lib/liborocos-kdl.a ] || run_cmd build_library orocos_kdl $prefix/libs/orocos_kdl-1.3.0
 [ -f $prefix/target/lib/liblog4cxx.a ] || run_cmd build_library_with_toolchain log4cxx $prefix/libs/apache-log4cxx-0.10.0
+[ -f $prefix/target/lib/libccd.a ] || run_cmd build_library libccd $prefix/libs/libccd-2.0
+[ -f $prefix/target/lib/libfcl.a ] || run_cmd build_library fcl $prefix/libs/fcl-0.3.2
 
 
 echo
