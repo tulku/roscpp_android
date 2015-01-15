@@ -43,6 +43,9 @@ elif [ $1 == 'curl' ]; then
 elif [ $1 == 'eigen' ]; then
     URL=https://github.com/tulku/eigen.git
     COMP='git'
+elif [ $1 == 'fcl' ]; then
+    URL=https://github.com/ros-gbp/fcl-release/archive/release/indigo/fcl/0.3.2-0.tar.gz
+    COMP='gz'
 elif [ $1 == 'flann' ]; then
     URL=https://github.com/chadrockey/flann_cmake.git
     COMP='git'
@@ -115,4 +118,6 @@ elif [ $1 == 'bfl' ]; then
     mv $prefix/bfl-release-release-indigo-bfl-0.7.0-6 $prefix/bfl-0.7.0
 elif [ $1 == 'orocos_kdl' ]; then
     mv $prefix/orocos-kdl-release-release-indigo-orocos_kdl-1.3.0-0 $prefix/orocos_kdl-1.3.0
+elif [ $1 == 'fcl' ]; then
+    mv $prefix/fcl-release-release-indigo-fcl-0.3.2-0 $prefix/fcl-0.3.2
 fi

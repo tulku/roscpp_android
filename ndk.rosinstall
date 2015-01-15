@@ -7,6 +7,18 @@
     uri: https://github.com/ros-gbp/geometry_angles_utils-release/archive/release/indigo/angles/1.9.9-0.tar.gz
     version: geometry_angles_utils-release-release-indigo-angles-1.9.9-0
 #- tar:
+#    local-name: arbotix/arbotix_controllers
+#    uri: https://github.com/vanadiumlabs/arbotix_ros-release/archive/release/indigo/arbotix_controllers/0.10.0-0.tar.gz
+#    version: arbotix_ros-release-release-indigo-arbotix_controllers-0.10.0-0
+- tar:
+    local-name: arbotix/arbotix_msgs
+    uri: https://github.com/vanadiumlabs/arbotix_ros-release/archive/release/indigo/arbotix_msgs/0.10.0-0.tar.gz
+    version: arbotix_ros-release-release-indigo-arbotix_msgs-0.10.0-0
+#- tar:
+#    local-name: arbotix/arbotix_python
+#    uri: https://github.com/vanadiumlabs/arbotix_ros-release/archive/release/indigo/arbotix_python/0.10.0-0.tar.gz
+#    version: arbotix_ros-release-release-indigo-arbotix_python-0.10.0-0
+#- tar:
 #    local-name: bfl
 #    uri: https://github.com/ros-gbp/bfl-release/archive/release/indigo/bfl/0.7.0-6.tar.gz
 #    version: bfl-release-release-indigo-bfl-0.7.0-6
@@ -138,10 +150,10 @@
     local-name: eigen_stl_containers
     uri: https://github.com/ros-gbp/eigen_stl_containers-release/archive/release/indigo/eigen_stl_containers/0.1.4-0.tar.gz
     version: eigen_stl_containers-release-release-indigo-eigen_stl_containers-0.1.4-0
-- tar:
-    local-name: fcl
-    uri: https://github.com/ros-gbp/fcl-release/archive/release/indigo/fcl/0.3.2-0.tar.gz
-    version: fcl-release-release-indigo-fcl-0.3.2-0
+#- tar:
+#    local-name: fcl
+#    uri: https://github.com/ros-gbp/fcl-release/archive/release/indigo/fcl/0.3.2-0.tar.gz
+#    version: fcl-release-release-indigo-fcl-0.3.2-0
 - tar:
     local-name: executive_smach/executive_smach
     uri: https://github.com/ros-gbp/executive_smach-release/archive/release/indigo/executive_smach/2.0.0-0.tar.gz
