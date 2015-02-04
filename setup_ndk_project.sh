@@ -4,9 +4,10 @@ my_loc="$(cd "$(dirname $0)" && pwd)"
 source $my_loc/config.sh
 source $my_loc/utils.sh
 
-if [ $# != 1 ] || [ $1 == '-h' ] || [ $1 == '--help' ]; then
-    echo "Usage: $0 project_path"
-    echo "  example: $0 /home/user/my_workspace/tf2_ndk"
+if [ $# != 2 ] || [ $1 == '-h' ] || [ $1 == '--help' ]; then
+    echo "Usage: $0 project_path portable"
+    echo "  example: $0 /home/user/my_workspace/tf2_ndk 0, will use external links"
+    echo "  example: $0 /home/user/my_workspace/tf2_ndk 1, will use copy all required files"
     exit 1
 fi
 
@@ -17,7 +18,13 @@ if [ ! -d $1 ]; then
 fi
 
 cd $1
-ln -fs $CMAKE_PREFIX_PATH/include ./
-ln -fs $CMAKE_PREFIX_PATH/lib ./
+
+if [[ $2 -eq 0 ]]; then
+  ln -fs $CMAKE_PREFIX_PATH/include ./
+  ln -fs $CMAKE_PREFIX_PATH/lib ./
+else
+  cp -r $CMAKE_PREFIX_PATH/include ./
+  cp -r $CMAKE_PREFIX_PATH/lib ./
+fi
 
 cp $my_loc/files/tfa/*.mk ./

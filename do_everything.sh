@@ -12,6 +12,7 @@ source $my_loc/config.sh
 source $my_loc/utils.sh
 debugging=0
 skip=0
+portable=0
 help=0
 
 if [[ $# -lt 1 ]] ; then
@@ -29,6 +30,10 @@ do
 
     if [[ ${var} == "--debug-symbols" ]] ; then
         debugging=1
+    fi
+
+    if [[ ${var} == "--portable" ]] ; then
+        portable=1
     fi
 done
 
@@ -315,7 +320,7 @@ echo
 echo -e '\e[34mSetting up ndk project.\e[39m'
 echo
 
-run_cmd setup_ndk_project $prefix/roscpp_android_ndk
+run_cmd setup_ndk_project $prefix/roscpp_android_ndk $portable
 
 echo
 echo -e '\e[34mCreating Android.mk.\e[39m'

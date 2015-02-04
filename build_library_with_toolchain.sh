@@ -42,7 +42,7 @@ if [ $1 == 'poco' ]; then
     cd $CMAKE_PREFIX_PATH/lib
     cp $prefix/lib/Android/armeabi/lib*.a ./
     mkdir -p ../include && cd ../include
-    cp $prefix/Foundation/include/Poco ./
+    cp -r $prefix/Foundation/include/Poco ./
 else
     make install
 fi
