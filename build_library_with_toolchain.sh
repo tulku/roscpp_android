@@ -40,9 +40,9 @@ make -s -j8
 if [ $1 == 'poco' ]; then
     mkdir -p $CMAKE_PREFIX_PATH/lib
     cd $CMAKE_PREFIX_PATH/lib
-    ln -sf $prefix/lib/Android/armeabi/lib*.a ./
+    cp $prefix/lib/Android/armeabi/lib*.a ./
     mkdir -p ../include && cd ../include
-    ln -sf $prefix/Foundation/include/Poco ./
+    cp $prefix/Foundation/include/Poco ./
 else
     make install
 fi
