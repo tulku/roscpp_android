@@ -89,8 +89,14 @@ if [[ $standard -eq 1 ]]; then
 fi
 
 if [[ $portable -eq 1 ]]; then
-  echo -e '\e[34mCreating portable tar.gz.\e[39m'
+  echo -e '\e[34mBuilding in portable mode.\e[39m'
   echo
   sudo docker run -t -v $my_loc:/opt/roscpp_android -v $output_path:/opt/roscpp_output -i rosndk /opt/roscpp_android/do_everything.sh /opt/roscpp_output --portable
+  echo
+  echo -e '\e[34mCreating output/roscpp_android_ndk.tar.gz.\e[39m'
+  echo
+  cd output
+  sudo tar czf roscpp_android_ndk.tar.gz roscpp_android_ndk
+  sudo chown $UID roscpp_android_ndk.tar.gz
   exit $?
 fi
