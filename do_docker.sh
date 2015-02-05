@@ -3,11 +3,72 @@
 my_loc="$(cd "$(dirname $0)" && pwd)"
 source $my_loc/utils.sh
 
+del_image=0
+del_tmp=0
+portable=0
+standard=0
+
 if [[ $# -lt 1 ]] ; then
+    standard=1
     output_path=$my_loc"/output"
-else
-    output_path=$1
 fi
+
+for var in "$@"
+do
+    if [[ ${var} == "--help" ]] ||  [[ ${var} == "-h" ]] ; then
+        help=1
+    fi
+    if [[ ${var} == "--delete-image" ]] ; then
+        del_image=1
+    fi
+
+    if [[ ${var} == "--delete-tmp" ]] ; then
+        del_tmp=1
+    fi
+
+    if [[ ${var} == "--portable" ]] ; then
+        output_path=$my_loc"/output"
+        portable=1
+    fi
+
+    if [[ ${var} == "--raw" ]] ; then
+        standard=1
+        output_path=$my_loc"/output"
+        if [[ $# -eq 2 ]]; then
+          output_path=$2
+        fi
+    fi
+done
+
+if [[ $help -eq 1 ]] ; then
+    echo "Usage: $0 [-h | --help] [--delete-image] [--delete-tmp] [--portable] [--standard] [output_dir]"
+    echo "  example: $0 --raw /path/to/output/dir, will create a raw output in the desired path (only useful from Docker)"
+    echo "  example: $0 --portable, will create a portable tar.gz output in the current directory."
+    echo "  example: $0 --delete-image, will delete the Docker image created for the build."
+    echo "  example: $0 --delete-tmp, will delete the Docker temp files created during build and rebuilds."
+    echo "  Only one action can be executed per invocation."
+    exit 1
+fi
+
+if [[ $del_image -eq 1 ]]; then
+  echo
+  echo -e '\e[34mDeleting docker image.\e[39m'
+  echo
+  sudo docker rmi -f rosndk
+  exit $?
+fi
+
+if [[ $del_tmp -eq 1 ]]; then
+  echo
+  echo -e '\e[34mDeleting docker temporary directory.\e[39m'
+  echo
+  sudo rm -rf /var/lib/docker/tmp
+  exit $?
+fi
+
+echo
+echo -e '\e[34mRunning build. This will take a LONG time.\e[39m'
+echo
 
 # Requires docker 1.3+
 cmd_exists docker || die 'docker was not found'
@@ -19,27 +80,17 @@ if [[ -z $IMAGE ]]; then
     # TODO: Verify successful docker image build
 fi
 
-if [ "x${1}" == "x--delete-image" ]
-then
-  echo
-  echo -e '\e[34mDeleting docker image.\e[39m'
-  echo
-  sudo docker rmi -f rosndk
 
-elif [ "x${1}" == "x--delete-tmp" ]
-then
-  echo
-  echo -e '\e[34mDeleting docker temporary directory.\e[39m'
-  echo
-  sudo rm -rf /var/lib/docker/tmp
-
-else
-  echo
-  echo -e '\e[34mRunning megabuild.\e[39m'
-  echo
+if [[ $standard -eq 1 ]]; then
   echo -e '\e[34mSetting output_path to: '$output_path'.\e[39m'
   echo
-
   sudo docker run -t -v $my_loc:/opt/roscpp_android -v $output_path:/opt/roscpp_output -i rosndk /opt/roscpp_android/do_everything.sh /opt/roscpp_output
+  exit $?
+fi
 
+if [[ $portable -eq 1 ]]; then
+  echo -e '\e[34mCreating portable tar.gz.\e[39m'
+  echo
+  sudo docker run -t -v $my_loc:/opt/roscpp_android -v $output_path:/opt/roscpp_output -i rosndk /opt/roscpp_android/do_everything.sh /opt/roscpp_output --portable
+  exit $?
 fi
