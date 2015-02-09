@@ -272,6 +272,9 @@ if [[ $skip -ne 1 ]] ; then
     # TODO: The correct way to handle this would be to create .cmake files for fcl and do a findpackage(fcl)
     patch -p0 -N -d $prefix < /opt/roscpp_android/patches/moveit_core.patch
 
+    # Patch move_base - Remove pluginlib
+    patch -p0 -N -d $prefix < /opt/roscpp_android/patches/move_base.patch
+
 fi
 
 echo
