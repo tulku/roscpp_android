@@ -1,6 +1,5 @@
-diff -ur output/catkin_ws/src/navigation/move_base/CMakeLists.txt output/catkin_ws/src/navigation/move_base/CMakeLists.txt
---- output/catkin_ws/src/navigation/move_base/CMakeLists.txt	2014-12-06 03:49:40.000000000 -0300
-+++ output/catkin_ws/src/navigation/move_base/CMakeLists.txt	2015-02-04 18:22:06.292433561 -0300
+--- catkin_ws/src/navigation/move_base/CMakeLists.txt	2014-12-06 03:49:40.000000000 -0300
++++ catkin_ws/src/navigation/move_base/CMakeLists.txt	2015-02-04 18:22:06.292433561 -0300
 @@ -8,6 +8,9 @@
          pluginlib
          actionlib
@@ -36,9 +35,8 @@ diff -ur output/catkin_ws/src/navigation/move_base/CMakeLists.txt output/catkin_
 +  FILES_MATCHING PATTERN "*.h"
 +  PATTERN ".svn" EXCLUDE
 +)
-diff -ur output/catkin_ws/src/navigation/move_base/include/move_base/move_base.h output/catkin_ws/src/navigation/move_base/include/move_base/move_base.h
---- output/catkin_ws/src/navigation/move_base/include/move_base/move_base.h	2014-12-06 03:49:40.000000000 -0300
-+++ output/catkin_ws/src/navigation/move_base/include/move_base/move_base.h	2015-02-04 19:08:33.244369624 -0300
+--- catkin_ws/src/navigation/move_base/include/move_base/move_base.h	2014-12-06 03:49:40.000000000 -0300
++++ catkin_ws/src/navigation/move_base/include/move_base/move_base.h	2015-02-04 19:08:33.244369624 -0300
 @@ -56,6 +56,10 @@
  #include <pluginlib/class_loader.h>
  #include <std_srvs/Empty.h>
@@ -60,9 +58,8 @@ diff -ur output/catkin_ws/src/navigation/move_base/include/move_base/move_base.h
  
        //set up plan triple buffer
        std::vector<geometry_msgs::PoseStamped>* planner_plan_;
-diff -ur output/catkin_ws/src/navigation/move_base/package.xml output/catkin_ws/src/navigation/move_base/package.xml
---- output/catkin_ws/src/navigation/move_base/package.xml	2014-12-06 03:49:40.000000000 -0300
-+++ output/catkin_ws/src/navigation/move_base/package.xml	2015-02-04 18:20:17.544436056 -0300
+--- catkin_ws/src/navigation/move_base/package.xml	2014-12-06 03:49:40.000000000 -0300
++++ catkin_ws/src/navigation/move_base/package.xml	2015-02-04 18:20:17.544436056 -0300
 @@ -35,6 +35,7 @@
      <!--These deps aren't strictly needed, but given the default parameters require them to work, we'll enforce that they build -->
      <build_depend>base_local_planner</build_depend>
@@ -79,9 +76,8 @@ diff -ur output/catkin_ws/src/navigation/move_base/package.xml output/catkin_ws/
      <run_depend>dynamic_reconfigure</run_depend>
      <run_depend>geometry_msgs</run_depend>
      <run_depend>message_runtime</run_depend>
-diff -ur output/catkin_ws/src/navigation/move_base/src/move_base.cpp output/catkin_ws/src/navigation/move_base/src/move_base.cpp
---- output/catkin_ws/src/navigation/move_base/src/move_base.cpp	2014-12-06 03:49:40.000000000 -0300
-+++ output/catkin_ws/src/navigation/move_base/src/move_base.cpp	2015-02-04 18:19:05.148437717 -0300
+--- catkin_ws/src/navigation/move_base/src/move_base.cpp	2014-12-06 03:49:40.000000000 -0300
++++ catkin_ws/src/navigation/move_base/src/move_base.cpp	2015-02-04 18:19:05.148437717 -0300
 @@ -49,9 +49,6 @@
      tf_(tf),
      as_(NULL),
